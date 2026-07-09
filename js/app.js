@@ -331,6 +331,14 @@ function navigate(route) {
   renderCurrentRoute();
   setActiveNav(route);
   window.scrollTo(0, 0);
+  closeMobileMenu();
+}
+
+function closeMobileMenu() {
+  const sidebarEl = document.querySelector(".sidebar");
+  const overlayEl = document.getElementById("sidebarOverlay");
+  if (sidebarEl) sidebarEl.classList.remove("open");
+  if (overlayEl) overlayEl.classList.remove("open");
 }
 
 function goToDay(n) {
@@ -426,6 +434,18 @@ document.querySelectorAll(".nav-group-toggle").forEach(btn => {
     btn.parentElement.classList.toggle("open");
   });
 });
+
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+if (mobileMenuBtn) {
+  mobileMenuBtn.addEventListener("click", () => {
+    document.querySelector(".sidebar").classList.toggle("open");
+    sidebarOverlay.classList.toggle("open");
+  });
+}
+if (sidebarOverlay) {
+  sidebarOverlay.addEventListener("click", closeMobileMenu);
+}
 
 // ---------- Drucken ----------
 document.getElementById("printAllBtn").addEventListener("click", () => {

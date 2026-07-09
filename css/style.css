@@ -514,8 +514,50 @@ h1, h2, h3, h4, .page-title, .subject-badge, .nav-item, .nav-group-toggle,
 .two-col .card { min-width: 0; }
 @media (max-width: 800px) {
   .two-col { grid-template-columns: 1fr; }
-  .sidebar { width: 220px; }
-  .content { padding: 24px 20px; }
+}
+
+/* ---------- Mobile-Menü ---------- */
+.mobile-menu-btn { display: none; }
+.sidebar-overlay { display: none; }
+
+@media (max-width: 800px) {
+  .content { padding: 76px 18px 24px 18px; width: 100%; }
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: 82%;
+    max-width: 300px;
+    z-index: 1000;
+    transform: translateX(-105%);
+    transition: transform 0.25s ease;
+    box-shadow: 6px 0 24px rgba(0,0,0,0.25);
+  }
+  .sidebar.open { transform: translateX(0); }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 14px; left: 14px;
+    z-index: 1001;
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    background: var(--sidebar-bg);
+    color: #fff;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  }
+
+  .sidebar-overlay.open {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 999;
+  }
 }
 
 /* ---------- Ausflugsziele-Poster ---------- */
