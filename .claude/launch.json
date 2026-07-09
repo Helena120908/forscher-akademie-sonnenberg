@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "static-server",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd '/private/tmp/claude-501/-Users-helena-Desktop-kurs-leo/1676e662-1c4a-4b98-a7c8-f6836f1c478d/scratchpad/preview_copy' && python3 -m http.server 8420"],
+      "port": 8420
+    }
+  ]
+}

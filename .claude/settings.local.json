@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth *)",
+      "Read(//Users/helena/**)",
+      "Bash(git config *)",
+      "Bash(curl -s https://api.github.com/repos/cli/cli/releases/latest)",
+      "Bash(curl -L -o gh_installer.pkg \"https://github.com/cli/cli/releases/download/v2.96.0/gh_2.96.0_macOS_universal.pkg\")",
+      "Bash(open \"/private/tmp/claude-501/-Users-helena-Desktop-kurs-leo/1676e662-1c4a-4b98-a7c8-f6836f1c478d/scratchpad/gh_installer.pkg\")",
+      "Bash(gh --version)",
+      "Bash(jobs -l)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(gh repo *)",
+      "Bash(git checkout *)",
+      "Bash(rsync -a --exclude=.git '/Users/helena/Desktop/kurs leo/' /private/tmp/claude-501/-Users-helena-Desktop-kurs-leo/1676e662-1c4a-4b98-a7c8-f6836f1c478d/scratchpad/preview_copy/)"
+    ]
+  }
+}

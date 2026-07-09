@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forscher-Akademie Sonnenberg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=11">
+</head>
+<body>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-icon">🧭</span>
+      <span class="brand-text">Forscher-Akademie<br>Sonnenberg</span>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-item" data-route="welcome">💌 Willkommensbrief</button>
+      <button class="nav-item" data-route="schedule">🗓️ Tagesplan</button>
+      <button class="nav-item" data-route="tracker">📊 Tracker-Poster</button>
+      <button class="nav-item" data-route="mission">🤝 Geschwistermission</button>
+      <button class="nav-item" data-route="materials">🧰 Materialien</button>
+      <button class="nav-item" data-route="excursions">🎡 Ausflugsziele</button>
+
+      <div class="nav-group">
+        <button class="nav-group-toggle" data-toggle="leo">🦁 Kadett <span class="chevron">▾</span></button>
+        <div class="nav-sub" data-group="leo">
+          <button class="nav-item nav-sub-item" data-route="leo-mathe">➗ Mathe</button>
+          <button class="nav-item nav-sub-item" data-route="leo-deutsch">📖 Deutsch</button>
+          <button class="nav-item nav-sub-item" data-route="leo-lesen">📚 Lesen</button>
+          <button class="nav-item nav-sub-item" data-route="leo-englisch">🇬🇧 Englisch</button>
+          <button class="nav-item nav-sub-item" data-route="leo-sachunterricht">🌍 Sachunterricht</button>
+          <button class="nav-item nav-sub-item" data-route="leo-einblick3">✨ Einblick 3. Klasse</button>
+          <button class="nav-item nav-sub-item" data-route="leo-bewegung">🏃 Bewegung</button>
+        </div>
+      </div>
+
+      <div class="nav-group">
+        <button class="nav-group-toggle" data-toggle="lili">🐢 Forscherkind <span class="chevron">▾</span></button>
+        <div class="nav-sub" data-group="lili">
+          <button class="nav-item nav-sub-item" data-route="lili-geschichte">📚 Geschichte</button>
+          <button class="nav-item nav-sub-item" data-route="lili-sprache">🗣️ Sprache</button>
+          <button class="nav-item nav-sub-item" data-route="lili-mathe">🔢 Mathe</button>
+          <button class="nav-item nav-sub-item" data-route="lili-englisch">🇬🇧 Englisch</button>
+          <button class="nav-item nav-sub-item" data-route="lili-kreativ">🎨 Kreativ & Ausmalen</button>
+          <button class="nav-item nav-sub-item" data-route="lili-naturwissen">🌱 Naturwissen</button>
+        </div>
+      </div>
+
+      <button class="nav-item" data-route="closing">🎉 Abschluss</button>
+    </nav>
+
+    <div class="session-counter" id="sessionCounter">🦁 Kadett: <strong>0 XP</strong> &nbsp;·&nbsp; 🐢 Forscherkind: <strong>0 ⭐</strong></div>
+    <button class="print-btn" id="printAllBtn">🖨️ Alles drucken</button>
+  </aside>
+
+  <main class="content" id="content"></main>
+</div>
+
+<div id="printArea" class="print-only"></div>
+
+<script src="js/data.js?v=11"></script>
+<script src="js/app.js?v=11"></script>
+</body>
+</html>
