@@ -414,7 +414,7 @@ const LEO = {
         }
       },
       day2: {
-        parentNote: "Heute lernt dein Kadett den <strong>Trick der stellenweisen Addition</strong> für die Addition mit Zehnerübergang. Wieder nur dieses eine Thema.",
+        parentNote: "Heute lernt dein Kadett einen zweiten cleveren Rechentrick: die <strong>stellenweise Addition</strong>. Damit rechnet er Aufgaben wie 49 + 36 sicher im Kopf, indem er Zehner und Einer getrennt addiert — ein Kniff, den auch viele Erwachsene beim Kopfrechnen nutzen.",
         theoryTitle: "Addition mit dem Trick der stellenweisen Addition",
         theoryHtml: `
           <p>Bei der Addition mit Zehnerübergang hilft es, Zehner und Einer getrennt zu addieren:</p>
