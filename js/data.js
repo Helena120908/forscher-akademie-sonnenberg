@@ -351,7 +351,7 @@ const LEO = {
     label: "Mathe",
     days: {
       day1: {
-        parentNote: "Heute lernt dein Kadett den <strong>Ergänzungstrick</strong> für die Subtraktion mit Zehnerübergang. Es geht nur um dieses eine Thema — kein Malnehmen, kein Teilen, keine Uhr.",
+        parentNote: "Heute lernt dein Kadett den <strong>Ergänzungstrick</strong> für die Subtraktion mit Zehnerübergang. Aufgaben mit Zehnerübergang wie 64 – 28 bereiten Kindern in der 2. Klasse oft Schwierigkeiten. Genau darauf ist dieses Heft ausgerichtet – mit gezielten Übungen zu dieser einen Aufgabenart.",
         theoryTitle: "Subtraktion mit dem Ergänzungstrick",
         theoryHtml: `
           <p>Wenn man zwei Zahlen subtrahiert und bei den Einern nicht "normal" abziehen kann
@@ -1710,30 +1710,68 @@ const LILI = {
     label: "Mathe",
     days: {
       day1: {
-        guide: "Spielerisch zählen, ohne Druck — es geht nur ums gemeinsame Entdecken der Mengen.",
+        guide: "Kein Abzählen nötig — die Mengen sollen einfach als Bild im Kopf entstehen. Lies die Geschichte langsam vor und zeig dabei auf die Matten.",
         activityHtml: `
           <div class="card">
-            <h3>🔢 Wie viele Affen siehst du?</h3>
-            <p>Zähle laut mit dem Finger auf jede Gruppe:</p>
-            <p style="font-size:26px;">🐒 (1) &nbsp;&nbsp;&nbsp; 🐒🐒 (2) &nbsp;&nbsp;&nbsp; 🐒🐒🐒 (3)</p>
-            <p style="font-size:26px;">🐒🐒🐒🐒 (4) &nbsp;&nbsp;&nbsp; 🐒🐒🐒🐒🐒 (5)</p>
-            <p>Spiel danach: Halte kurz eine bestimmte Anzahl Finger hoch (1–5) und lass das Forscherkind raten,
-            wie viele es sind, ohne zu zählen — das nennt man "auf einen Blick erfassen".</p>
+            <h3>🐒 Die Affen und ihre Matten</h3>
+            <p><strong>Schau mal:</strong> Ein Affe liegt auf seiner Matte und macht ein Nickerchen.</p>
+            <div style="display:flex;gap:12px;margin:14px 0;">
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+          </div>
+            <p><strong>Da kommt noch einer dazu</strong> und legt sich auf seine eigene Matte.</p>
+            <div style="display:flex;gap:12px;margin:14px 0;">
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+          </div>
+            <p><strong>Und jetzt kommt noch einer!</strong> Jetzt liegen alle drei gemütlich nebeneinander in der Sonne.</p>
+            <div style="display:flex;gap:12px;margin:14px 0;">
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+          </div>
+            <p style="font-size:13.5px;color:#6b7280;">Bitte nicht (vor)zählen — einfach die Geschichte erzählen und
+            auf die Matten zeigen. Zeig am Ende alle drei Bilder noch einmal und lass das Forscherkind darauf zeigen,
+            wo die meisten Affen liegen.</p>
           </div>
         `
       },
       day2: {
-        guide: "Heute geht es um Mengen vergleichen — spielerisch, ganz ohne Zahlen benennen zu müssen.",
+        guide: "Wieder ganz ohne Abzählen — heute wächst die Affengruppe bis auf fünf.",
         activityHtml: `
           <div class="card">
-            <h3>⚖️ Mehr oder weniger?</h3>
-            <p>Zeige dem Forscherkind zwei Gruppen von Tieren und frag: "Wo sind mehr?"</p>
-            <p style="font-size:26px;">🐒🐒🐒 &nbsp;&nbsp;&nbsp;vs.&nbsp;&nbsp;&nbsp; 🐸🐸</p>
-            <p style="font-size:14px;color:#6b7280;">(Hier sind mehr Affen als Frösche)</p>
-            <p style="font-size:26px;">🐍 &nbsp;&nbsp;&nbsp;vs.&nbsp;&nbsp;&nbsp; 🦋🦋🦋🦋</p>
-            <p style="font-size:14px;color:#6b7280;">(Hier sind mehr Schmetterlinge als Schlangen)</p>
-            <p>Lass das Forscherkind selbst zwei Gruppen mit Spielzeug oder Fingern bilden und entscheiden, welche
-            Gruppe mehr ist.</p>
+            <h3>🐒 Noch mehr Affen kommen dazu</h3>
+            <p><strong>Heute kommen noch mehr Besucher!</strong> Ein Affe macht es sich auf seiner Matte gemütlich.</p>
+            <div style="display:flex;gap:12px;margin:14px 0;">
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+          </div>
+            <p><strong>Ein zweiter Affe</strong> gesellt sich dazu.</p>
+            <div style="display:flex;gap:12px;margin:14px 0;">
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+          </div>
+            <p><strong>Dann kommt ein dritter.</strong></p>
+            <div style="display:flex;gap:12px;margin:14px 0;">
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+          </div>
+            <p><strong>Und noch einer!</strong> Jetzt sind es schon vier.</p>
+            <div style="display:flex;gap:12px;margin:14px 0;">
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+          </div>
+            <p><strong>Zum Schluss kommt der letzte Affe dazu</strong> — jetzt ist die ganze Affenbande versammelt!</p>
+            <div style="display:flex;gap:12px;margin:14px 0;">
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">🐒</div>
+          </div>
+            <p style="font-size:13.5px;color:#6b7280;">Auch hier gilt: nicht zählen, einfach Bild für Bild anschauen
+            und die wachsende Menge auf das Forscherkind wirken lassen.</p>
           </div>
         `
       },
