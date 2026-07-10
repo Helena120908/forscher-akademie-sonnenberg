@@ -807,18 +807,28 @@ const LEO = {
         theoryHtml: `
           <p>Im dichten Dschungel lebte ein junger Tiger namens Rufus. Rufus hatte ein besonderes
           Streifenmuster: Auf seinem Rücken sah man ein kleines Herz aus Streifen. Die anderen Tiere
-          im Dschungel nannten ihn deshalb "Herz-Tiger".</p>
-          <p>Eines Morgens hörte Rufus ein lautes Piepen. Er folgte dem Geräusch bis zu einem tiefen
-          Loch im Boden. Dort saß ein kleiner Papagei fest. Der Papagei hieß Coco und konnte nicht
-          mehr herausfliegen, weil sein Flügel wehtat.</p>
-          <p>Rufus überlegte kurz. Dann legte er sich flach auf den Bauch und streckte seine Pfote in
-          das Loch. "Halt dich an meiner Pfote fest!", rief er Coco zu. Der kleine Papagei krallte
-          sich mit seinen Füßen an Rufus' Pfote fest. Ganz langsam zog Rufus ihn nach oben.</p>
-          <p>Endlich war Coco gerettet! Er saß sicher auf einem Ast und bedankte sich laut. "Danke,
-          Rufus! Du bist der mutigste Tiger im ganzen Dschungel!"</p>
-          <p>Rufus lächelte. Er war stolz, dass er Coco helfen konnte. Von diesem Tag an waren Rufus
-          und Coco die besten Freunde. Sie trafen sich jeden Morgen am großen Wasserfall und erzählten
-          sich Geschichten.</p>
+          im Dschungel nannten ihn deshalb "Herz-Tiger". Rufus war stolz auf sein Muster, aber noch
+          stolzer war er darauf, dass er allen Tieren im Dschungel half, wenn sie in Schwierigkeiten
+          steckten.</p>
+          <p>Eines Morgens hörte Rufus ein lautes Piepen. Zuerst dachte er, es wäre nur der Wind, der
+          durch die Blätter strich. Doch das Piepen wurde lauter und klang immer verzweifelter. Rufus
+          folgte dem Geräusch durch dichtes Gebüsch, über einen umgestürzten Ast und vorbei an einem
+          kleinen Bach, bis er zu einem tiefen Loch im Boden kam. Dort saß ein kleiner bunter Papagei
+          fest. Der Papagei hieß Coco und konnte nicht mehr herausfliegen, weil sein Flügel wehtat.</p>
+          <p>"Bitte hilf mir!", rief Coco mit zitternder Stimme. "Ich bin beim Landen abgerutscht und
+          in dieses Loch gefallen."</p>
+          <p>Rufus überlegte kurz, wie er helfen könnte. Dann legte er sich flach auf den Bauch und
+          streckte seine Pfote so weit wie möglich in das Loch. "Halt dich an meiner Pfote fest!", rief
+          er Coco zu. Der kleine Papagei krallte sich mit seinen Füßen an Rufus' Pfote fest. Ganz
+          langsam und vorsichtig zog Rufus ihn nach oben, Stück für Stück, bis Coco endlich wieder
+          festen Boden unter den Krallen hatte.</p>
+          <p>Endlich war Coco gerettet! Er saß sicher auf einem Ast und bedankte sich immer wieder.
+          "Danke, Rufus! Du bist der mutigste und stärkste Tiger im ganzen Dschungel!"</p>
+          <p>Rufus lächelte bescheiden. "Jeder hätte das getan", sagte er, aber innerlich war er sehr
+          stolz, dass er Coco helfen konnte. Von diesem Tag an waren Rufus und Coco die besten Freunde.
+          Sie trafen sich jeden Morgen am großen Wasserfall, erzählten sich Geschichten, und Coco
+          erzählte allen anderen Tieren stolz von seinem Freund, dem Herz-Tiger, der ihm das Leben
+          gerettet hatte.</p>
         `,
         exerciseHtml: `
           <h4 style="font-family:var(--font-fun);">📋 Verständnisfragen</h4>
@@ -828,6 +838,8 @@ const LEO = {
             <li>Wer saß in dem Loch fest? <span class="star">⭐</span></li>
             <li>Warum konnte Coco nicht herausfliegen? <span class="star">⭐</span></li>
             <li>Wie hat Rufus Coco gerettet? <span class="star">⭐</span></li>
+            <li>Was hat Coco zu Rufus gesagt, nachdem er gerettet wurde? <span class="star">⭐</span></li>
+            <li>Wo treffen sich Rufus und Coco jetzt jeden Morgen? <span class="star">⭐</span></li>
           </ol>
           <h4 style="font-family:var(--font-fun);">✍️ Schreibübung</h4>
           <p>Schreibe 2–3 eigene Sätze: Was könnten Rufus und Coco als Nächstes gemeinsam erleben?</p>
@@ -835,7 +847,8 @@ const LEO = {
         solutionHtml: `
           <p><strong>Verständnisfragen:</strong></p>
           <p>1. Rufus · 2. Ein kleines Herz aus Streifen · 3. Der Papagei Coco · 4. Weil sein Flügel
-          wehtat · 5. Er streckte seine Pfote ins Loch und zog Coco vorsichtig hoch</p>
+          wehtat · 5. Er streckte seine Pfote ins Loch und zog Coco vorsichtig hoch · 6. "Danke, Rufus!
+          Du bist der mutigste und stärkste Tiger im ganzen Dschungel!" · 7. Am großen Wasserfall</p>
           <p><strong>Schreibübung:</strong> Keine feste Lösung — jede sinnvolle, selbst ausgedachte
           kleine Geschichte zählt. Beispiel: "Rufus und Coco entdecken eine geheime Höhle. Dort finden
           sie eine Schatzkiste. Sie teilen den Schatz mit allen Tieren im Dschungel."</p>
@@ -859,15 +872,22 @@ const LEO = {
         theoryHtml: `
           <p>Kiara war eine grüne Schlange, die im hohen Gras der Dschungel-Insel lebte. Anders als
           viele andere Schlangen war Kiara nicht gefährlich — sie ernährte sich nur von kleinen
-          Insekten und mochte es, den anderen Tieren zuzuhören.</p>
-          <p>Eines Tages hörte Kiara ein Streitgespräch. Der Affe Momo und der Frosch Felix stritten
-          sich um den schönsten Platz am Fluss. "Ich war zuerst hier!", rief Momo. "Nein, ich!", rief
-          Felix zurück.</p>
-          <p>Kiara schlängelte sich näher heran. "Warum teilt ihr euch den Platz nicht einfach?",
-          schlug sie vor. "Morgens kann Momo dort sitzen, und nachmittags ist Felix an der Reihe."</p>
-          <p>Momo und Felix schauten sich an. Das war eine gute Idee! Sie bedankten sich bei Kiara und
-          vertrugen sich wieder. Von diesem Tag an fragten die Tiere im Dschungel oft die kluge
-          Schlange Kiara um Rat, wenn sie sich stritten.</p>
+          Insekten und mochte es, den anderen Tieren zuzuhören und ihnen bei ihren Problemen zu
+          helfen.</p>
+          <p>Eines Tages hörte Kiara ein lautes Streitgespräch am Flussufer. Der Affe Momo und der
+          Frosch Felix stritten sich um den schönsten Platz am Fluss, direkt unter einem schattigen
+          Baum. "Ich war zuerst hier!", rief Momo und stampfte mit dem Fuß auf. "Nein, ich!", rief
+          Felix zurück und blies wütend seine Backen auf. Die beiden stritten schon eine ganze Weile,
+          und keiner wollte nachgeben.</p>
+          <p>Kiara schlängelte sich neugierig näher heran und beobachtete die beiden eine Zeit lang.
+          "Warum teilt ihr euch den Platz nicht einfach?", schlug sie schließlich vor. "Morgens, wenn
+          die Sonne noch nicht so heiß ist, kann Momo dort sitzen und die kühle Luft genießen. Und
+          nachmittags, wenn es heißer wird, ist Felix an der Reihe und kann sich im Schatten
+          abkühlen."</p>
+          <p>Momo und Felix schauten sich überrascht an. Das war eine wirklich gute Idee, auf die sie
+          selbst nicht gekommen waren! Sie bedankten sich bei Kiara und vertrugen sich sofort wieder.
+          Von diesem Tag an fragten die Tiere im Dschungel immer öfter die kluge Schlange Kiara um
+          Rat, wenn sie sich stritten oder nicht weiterwussten.</p>
         `,
         exerciseHtml: `
           <h4 style="font-family:var(--font-fun);">📋 Verständnisfragen</h4>
@@ -877,6 +897,8 @@ const LEO = {
             <li>Worüber haben sich Momo und Felix gestritten? <span class="star">⭐</span></li>
             <li>Welchen Vorschlag hat Kiara gemacht? <span class="star">⭐</span></li>
             <li>Was passiert seitdem, wenn sich die Tiere streiten? <span class="star">⭐</span></li>
+            <li>Wie haben Momo und Felix auf Kiaras Vorschlag reagiert? <span class="star">⭐</span></li>
+            <li>Warum ist der Platz morgens und nachmittags unterschiedlich angenehm? <span class="star">⭐</span></li>
           </ol>
           <h4 style="font-family:var(--font-fun);">✍️ Schreibübung</h4>
           <p>Schreibe 2–3 eigene Sätze: Wie würdest du einen Streit zwischen zwei Freunden schlichten?</p>
@@ -884,7 +906,9 @@ const LEO = {
         solutionHtml: `
           <p><strong>Verständnisfragen:</strong></p>
           <p>1. Grün · 2. Von kleinen Insekten · 3. Um den schönsten Platz am Fluss · 4. Sich den Platz
-          zu teilen (morgens Momo, nachmittags Felix) · 5. Die Tiere fragen Kiara um Rat</p>
+          zu teilen (morgens Momo, nachmittags Felix) · 5. Die Tiere fragen Kiara öfter um Rat · 6. Sie
+          waren überrascht, fanden die Idee gut und vertrugen sich sofort · 7. Weil es morgens kühler
+          und nachmittags heißer ist</p>
           <p><strong>Schreibübung:</strong> Keine feste Lösung — jede durchdachte eigene Idee zählt.</p>
         `,
         preview: "Morgen liest dein Kadett eine Geschichte über das schlaue Krokodil Karl.",
@@ -905,17 +929,25 @@ const LEO = {
         theoryTitle: "Das schlaue Krokodil",
         theoryHtml: `
           <p>Am Flussufer der Dschungel-Insel lebte ein altes Krokodil namens Karl. Karl lag den
-          ganzen Tag reglos im Wasser und sah aus wie ein Ast. Viele Tiere hatten Angst vor ihm, weil
-          Krokodile kräftige Zähne haben.</p>
-          <p>Eines Tages wollte der kleine Frosch Felix über den Fluss springen, aber die Strömung war
-          zu stark. "Oh nein, wie komme ich nur ans andere Ufer?", rief Felix verzweifelt.</p>
+          ganzen Tag reglos im Wasser und sah aus wie ein alter, moosbedeckter Ast. Viele Tiere hatten
+          großen Respekt vor ihm, denn Krokodile haben kräftige Zähne und einen langen Schwanz, mit dem
+          sie kräftig schlagen können. Die meisten Tiere schwammen deshalb lieber weit um Karl herum.</p>
+          <p>Eines Tages wollte der kleine Frosch Felix unbedingt über den Fluss springen, um seine
+          Familie auf der anderen Seite zu besuchen. Doch die Strömung war an diesem Tag viel zu stark
+          und die Wellen schlugen hoch. "Oh nein, wie komme ich nur ans andere Ufer?", rief Felix
+          verzweifelt und blickte ängstlich auf das reißende Wasser.</p>
           <p>Karl, das Krokodil, hob langsam seinen Kopf aus dem Wasser. "Ich kann dir helfen", sagte
-          er ruhig. "Spring auf meinen Rücken, ich bringe dich sicher hinüber."</p>
-          <p>Felix zögerte zuerst, aber Karl wirkte freundlich. Also sprang er auf den breiten Rücken
-          des Krokodils. Karl schwamm langsam und vorsichtig ans andere Ufer. Felix kam sicher an und
-          sprang erleichtert von Karls Rücken.</p>
-          <p>"Danke, Karl! Ich hatte Angst vor dir, aber du bist gar nicht gefährlich!", sagte Felix.
-          Karl lächelte. "Nicht jedes Tier, das gefährlich aussieht, ist auch böse", antwortete er weise.</p>
+          er mit ruhiger, tiefer Stimme. "Spring auf meinen Rücken, ich bringe dich sicher hinüber." Der
+          kleine Frosch erschrak zunächst, denn er hatte noch nie mit einem Krokodil gesprochen.</p>
+          <p>Felix zögerte lange, aber Karls Augen wirkten freundlich und geduldig. Schließlich fasste
+          er sich ein Herz und sprang auf den breiten, schuppigen Rücken des Krokodils. Karl schwamm
+          ganz langsam und vorsichtig gegen die starke Strömung ans andere Ufer, damit Felix nicht
+          herunterrutschte. Endlich kam Felix sicher an und sprang erleichtert von Karls Rücken auf
+          das trockene Ufer.</p>
+          <p>"Danke, Karl! Ich hatte solche Angst vor dir, aber du bist gar nicht gefährlich!", sagte
+          Felix erstaunt. Karl lächelte müde. "Nicht jedes Tier, das gefährlich aussieht, ist auch
+          böse", antwortete er weise, "und manchmal lohnt es sich, genauer hinzuschauen, bevor man
+          jemanden fürchtet."</p>
         `,
         exerciseHtml: `
           <h4 style="font-family:var(--font-fun);">📋 Verständnisfragen</h4>
@@ -925,6 +957,8 @@ const LEO = {
             <li>Welches Problem hatte der Frosch Felix? <span class="star">⭐</span></li>
             <li>Wie hat Karl Felix geholfen? <span class="star">⭐</span></li>
             <li>Was hat Felix am Ende über Karl gelernt? <span class="star">⭐</span></li>
+            <li>Warum wollte Felix überhaupt auf die andere Seite des Flusses? <span class="star">⭐</span></li>
+            <li>Warum ist Karl besonders langsam und vorsichtig geschwommen? <span class="star">⭐</span></li>
           </ol>
           <h4 style="font-family:var(--font-fun);">✍️ Schreibübung</h4>
           <p>Schreibe 2–3 eigene Sätze: Warum sollte man nicht vorschnell über andere urteilen?</p>
@@ -933,7 +967,8 @@ const LEO = {
           <p><strong>Verständnisfragen:</strong></p>
           <p>1. Karl · 2. Weil Krokodile kräftige Zähne haben · 3. Er wollte über den Fluss, aber die
           Strömung war zu stark · 4. Er trug Felix sicher auf seinem Rücken ans andere Ufer · 5. Dass
-          nicht jedes gefährlich aussehende Tier auch böse ist</p>
+          nicht jedes gefährlich aussehende Tier auch böse ist · 6. Er wollte seine Familie auf der
+          anderen Seite besuchen · 7. Damit Felix nicht von seinem Rücken herunterrutscht</p>
           <p><strong>Schreibübung:</strong> Keine feste Lösung — jede durchdachte eigene Idee zählt.</p>
         `,
         preview: "Morgen liest dein Kadett eine spannende Geschichte über einen Sturm im Dschungel.",
@@ -1053,7 +1088,7 @@ const LEO = {
     label: "Englisch",
     days: {
       day1: {
-        parentNote: "Heutiges Englisch-Kapitel: <strong>„Hello! All about me“</strong> — ca. 45–60 Minuten Inhalt, passend zum Dschungel-Thema.",
+        parentNote: "Heutiges Englisch-Kapitel: <strong>„Hello! All about me“</strong> — mit Wortschatz, Rollenspiel, Lied, Suchbild und schriftlicher Übung ein vollwertiges Kapitel von ca. 45–60 Minuten, passend zum Dschungel-Thema.",
         theoryTitle: "Wortschatz & Satzmuster",
         theoryHtml: `
           <p><strong>Neue Wörter:</strong></p>
@@ -1064,9 +1099,10 @@ const LEO = {
             <tr><td>I have</td><td>ich habe</td></tr>
             <tr><td>I like</td><td>ich mag</td></tr>
             <tr><td>lion / monkey / elephant / snake / frog</td><td>Löwe / Affe / Elefant / Schlange / Frosch</td></tr>
+            <tr><td>tiger / parrot</td><td>Tiger / Papagei</td></tr>
           </table>
           <p><strong>Satzmuster zum Üben:</strong><br>
-          "I am Mika." · "I am 7 years old." · "I have a snake." · "I like monkeys."</p>
+          "I am Mika." · "I am 7 years old." · "I have a snake." · "I like monkeys." · "I like tigers."</p>
         `,
         roleplay: {
           title: "🎭 Rollenspiel-Dialog",
@@ -1076,9 +1112,13 @@ const LEO = {
             <strong>A:</strong> How old are you?<br>
             <strong>B:</strong> I am 100 years old! And you?<br>
             <strong>A:</strong> I am 7 years old. I have a pet snake. I like monkeys!<br>
-            <strong>B:</strong> I like frogs!</p>
-            <p style="font-size:13px;color:#6b7280;">Spielt den Dialog zusammen — ein Elternteil oder
-            Das Geschwisterkind kann die Rolle von "B" übernehmen.</p>
+            <strong>B:</strong> I like frogs! Do you like tigers?<br>
+            <strong>A:</strong> Yes, I like tigers! And I like the parrot too.<br>
+            <strong>B:</strong> Me too! Nice to meet you, Mika!</p>
+            <p style="font-size:13px;color:#6b7280;">Spielt den Dialog zusammen — ein Elternteil kann die
+            Rolle von "B" übernehmen. <strong>Wiederholt den Dialog danach noch 2-3 Mal</strong> und tauscht
+            dabei Tiere, Namen und Zahlen aus — das festigt den Wortschatz spielerisch und macht aus dem
+            kurzen Text eine richtige Sprechübung.</p>
           `
         },
         song: {
@@ -1092,9 +1132,23 @@ const LEO = {
         },
         puzzle: {
           title: "🔍 Suchbild: Verbinde das englische Wort mit dem passenden Tier",
-          pairs: [["lion","🦁"],["monkey","🐒"],["elephant","🐘"],["snake","🐍"],["frog","🐸"]],
-          solution: "lion🦁 · monkey🐒 · elephant🐘 · snake🐍 · frog🐸"
+          pairs: [["lion","🦁"],["monkey","🐒"],["elephant","🐘"],["snake","🐍"],["frog","🐸"],["tiger","🐯"],["parrot","🦜"]],
+          solution: "lion🦁 · monkey🐒 · elephant🐘 · snake🐍 · frog🐸 · tiger🐯 · parrot🦜"
         },
+        exerciseHtml: `
+          <h4 style="font-family:var(--font-fun);">✏️ Ergänze die Sätze</h4>
+          <p>Fülle die Lücken mit dem passenden englischen Wort:</p>
+          <ol class="exercise-list">
+            <li>Hello! I ___ Mika. (bin/heiße) <span class="star">⭐</span></li>
+            <li>I am ___ years old. (deine eigene Zahl) <span class="star">⭐</span></li>
+            <li>I ___ a pet snake. (habe) <span class="star">⭐</span></li>
+            <li>I ___ monkeys and tigers. (mag) <span class="star">⭐</span></li>
+            <li>___! What is your name? (Hallo) <span class="star">⭐</span></li>
+          </ol>
+        `,
+        solutionHtml: `
+          <p>1. am · 2. (individuelle Antwort) · 3. have · 4. like · 5. Hello</p>
+        `,
         preview: "Morgen bauen wir auf 'I have' und 'I like' auf und lernen Farbwörter dazu."
       },
       day2: {
