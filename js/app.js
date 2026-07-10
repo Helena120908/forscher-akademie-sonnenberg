@@ -6,7 +6,34 @@ const printAreaEl = document.getElementById("printArea");
 let currentRoute = "welcome";
 let currentDay = 1;
 
-const SESSION = { leoXP: 0, liliStars: 0 };
+// ---------- Fortschritt: lokal auf diesem Gerät gespeichert, kein Login nötig ----------
+const STORAGE_KEY = "forscherAkademieProgress_v1";
+
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) throw new Error("empty");
+    const parsed = JSON.parse(raw);
+    return {
+      leoXP: parsed.leoXP || 0,
+      liliStars: parsed.liliStars || 0,
+      starDone: parsed.starDone || {},
+      trackerDone: parsed.trackerDone || {},
+      doneButtons: parsed.doneButtons || {}
+    };
+  } catch (e) {
+    return { leoXP: 0, liliStars: 0, starDone: {}, trackerDone: {}, doneButtons: {} };
+  }
+}
+
+function saveProgress() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(PROGRESS));
+  } catch (e) { /* Speicher evtl. voll/gesperrt — kein Absturz, Fortschritt bleibt nur im Speicher dieser Sitzung */ }
+}
+
+const PROGRESS = loadProgress();
+const SESSION = { leoXP: PROGRESS.leoXP, liliStars: PROGRESS.liliStars };
 
 function updateSessionCounter() {
   const el = document.getElementById("sessionCounter");
@@ -373,7 +400,51 @@ function updateWorksheetProgress(worksheet) {
 }
 
 function initInteractiveWidgets() {
-  document.querySelectorAll(".worksheet").forEach(updateWorksheetProgress);
+  // Sterne: stabile ID je nach Position im Übungsblatt vergeben, dann gespeicherten Zustand wiederherstellen
+  document.querySelectorAll(".worksheet").forEach(worksheet => {
+    worksheet.querySelectorAll(".star").forEach((star, idx) => {
+      const id = `star:${currentRoute}:day${currentDay}:${idx}`;
+      star.dataset.starId = id;
+      if (PROGRESS.starDone[id]) {
+        star.classList.add("done");
+        star.textContent = "🌟";
+      }
+    });
+    updateWorksheetProgress(worksheet);
+  });
+
+  // "Geschafft!"-Buttons (Forscherkind-Aktivitäten)
+  document.querySelectorAll(".mark-done-btn").forEach(btn => {
+    const id = `done:${currentRoute}:day${currentDay}`;
+    btn.dataset.doneId = id;
+    if (PROGRESS.doneButtons[id]) {
+      btn.classList.add("done");
+      btn.textContent = "🎉 Super gemacht!";
+    }
+  });
+
+  // Tracker-Tage: gespeicherten Zustand wiederherstellen + Anzeige aktualisieren
+  document.querySelectorAll(".tracker-grid").forEach(grid => {
+    grid.querySelectorAll(".tracker-day").forEach(cell => {
+      const id = `tracker:${cell.dataset.child}:day${cell.dataset.day}`;
+      cell.dataset.trackerId = id;
+      if (PROGRESS.trackerDone[id]) cell.classList.add("done");
+    });
+    updateTrackerDisplay(grid);
+  });
+}
+
+function updateTrackerDisplay(grid) {
+  const wrap = grid.closest(".card");
+  if (!wrap) return;
+  const doneCount = grid.querySelectorAll(".tracker-day.done").length;
+  const countLabel = wrap.querySelector(".tracker-live-count");
+  if (countLabel) countLabel.textContent = `${doneCount} von ${TOTAL_DAYS} Tagen abgehakt`;
+  const rankEl = wrap.querySelector(".tracker-live-rank");
+  if (rankEl) {
+    const xp = doneCount * 60;
+    rankEl.textContent = `${rankFor(xp)} (${xp} XP)`;
+  }
 }
 
 document.addEventListener("click", (e) => {
@@ -384,6 +455,9 @@ document.addEventListener("click", (e) => {
     star.textContent = star.classList.contains("done") ? "🌟" : "⭐";
     SESSION.leoXP += wasDone ? -15 : 15;
     if (SESSION.leoXP < 0) SESSION.leoXP = 0;
+    PROGRESS.leoXP = SESSION.leoXP;
+    if (star.dataset.starId) PROGRESS.starDone[star.dataset.starId] = !wasDone;
+    saveProgress();
     updateSessionCounter();
     updateWorksheetProgress(star.closest(".worksheet"));
     return;
@@ -396,6 +470,9 @@ document.addEventListener("click", (e) => {
     doneBtn.textContent = doneBtn.classList.contains("done") ? "🎉 Super gemacht!" : "✅ Geschafft!";
     SESSION.liliStars += wasDone ? -1 : 1;
     if (SESSION.liliStars < 0) SESSION.liliStars = 0;
+    PROGRESS.liliStars = SESSION.liliStars;
+    if (doneBtn.dataset.doneId) PROGRESS.doneButtons[doneBtn.dataset.doneId] = !wasDone;
+    saveProgress();
     updateSessionCounter();
     return;
   }
@@ -403,16 +480,11 @@ document.addEventListener("click", (e) => {
   const trackerDay = e.target.closest(".tracker-day");
   if (trackerDay) {
     trackerDay.classList.toggle("done");
-    const grid = trackerDay.closest(".tracker-grid");
-    const wrap = grid.closest(".card");
-    const doneCount = grid.querySelectorAll(".tracker-day.done").length;
-    const countLabel = wrap.querySelector(".tracker-live-count");
-    if (countLabel) countLabel.textContent = `${doneCount} von ${TOTAL_DAYS} Tagen abgehakt`;
-    const rankEl = wrap.querySelector(".tracker-live-rank");
-    if (rankEl) {
-      const xp = doneCount * 60;
-      rankEl.textContent = `${rankFor(xp)} (${xp} XP)`;
+    if (trackerDay.dataset.trackerId) {
+      PROGRESS.trackerDone[trackerDay.dataset.trackerId] = trackerDay.classList.contains("done");
+      saveProgress();
     }
+    updateTrackerDisplay(trackerDay.closest(".tracker-grid"));
     return;
   }
 });
@@ -473,4 +545,5 @@ document.getElementById("printAllBtn").addEventListener("click", () => {
 
 // ---------- Start ----------
 document.querySelector('.nav-group-toggle[data-toggle="leo"]').parentElement.classList.add("open");
+updateSessionCounter();
 navigate("welcome");

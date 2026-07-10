@@ -122,7 +122,7 @@ function trackerGridHtml(activeColor, child) {
   for (let d = 1; d <= TOTAL_DAYS; d++) {
     const isToday = d === 1;
     const style = isToday ? `style="border-color:${activeColor};color:${activeColor};background:${activeColor}1a;"` : "";
-    cells += `<div class="tracker-day" data-child="${child}" ${style}>Tag ${d}</div>`;
+    cells += `<div class="tracker-day" data-child="${child}" data-day="${d}" ${style}>Tag ${d}</div>`;
   }
   return `<div class="tracker-grid">${cells}</div>`;
 }
