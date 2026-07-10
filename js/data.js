@@ -1088,7 +1088,7 @@ const LEO = {
     label: "Englisch",
     days: {
       day1: {
-        parentNote: "Heutiges Englisch-Kapitel: <strong>„Hello! All about me“</strong> — mit Wortschatz, Rollenspiel, Lied, Suchbild und schriftlicher Übung ein vollwertiges Kapitel von ca. 45–60 Minuten, passend zum Dschungel-Thema.",
+        parentNote: "Heutiges Englisch-Kapitel: <strong>„Hello! All about me“</strong> — mit Wortschatz, Rollenspiel, Lied, Suchbild und schriftlicher Übung ein vollwertiges Kapitel, passend zum Dschungel-Thema.",
         theoryTitle: "Wortschatz & Satzmuster",
         theoryHtml: `
           <p><strong>Neue Wörter:</strong></p>
