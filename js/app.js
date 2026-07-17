@@ -147,10 +147,9 @@ function renderLeoSubject(key) {
       <div class="card">
         <h3>${day.puzzle.title}</h3>
         <table class="match-table">
-          ${day.puzzle.pairs.map(([w,e]) => `<tr><td>${w}</td><td>?</td><td style="opacity:0;">${e}</td></tr>`).join("")}
+          ${day.puzzle.pairs.map(([w,e]) => `<tr><td>${w}</td><td style="text-align:right;font-size:30px;">${e}</td></tr>`).join("")}
         </table>
-        <button class="toggle-btn" style="background:${color};" onclick="this.nextElementSibling.classList.toggle('visible')">Lösung anzeigen / verbergen</button>
-        <div class="solutions">${day.puzzle.solution}</div>
+        <p style="font-size:13px;color:#6b7280;">Ziehe eine Linie vom englischen Wort zum passenden Bild.</p>
       </div>
     `;
   }
@@ -170,13 +169,7 @@ function renderLeoSubject(key) {
     `;
   }
 
-  return header + `
-    <div class="parent-note"><strong>Elternhinweis:</strong> ${day.parentNote}</div>
-    <div class="card">
-      <h3>📘 Theorie: ${day.theoryTitle}</h3>
-      ${day.theoryHtml}
-    </div>
-    ${englischExtra}
+  const worksheetHtml = exercisesHtml ? `
     <div class="worksheet" style="--ws-color:${color};">
       <div class="worksheet-header">
         <span class="badge-icon">✏️</span> Mein Übungsblatt
@@ -187,6 +180,16 @@ function renderLeoSubject(key) {
       </div>
       ${exercisesHtml}
     </div>
+  ` : "";
+
+  return header + `
+    <div class="parent-note"><strong>Elternhinweis:</strong> ${day.parentNote}</div>
+    <div class="card">
+      <h3>📘 Theorie: ${day.theoryTitle}</h3>
+      ${day.theoryHtml}
+    </div>
+    ${englischExtra}
+    ${worksheetHtml}
     ${bossHtml}
     ${bonusHtml}
     <div class="preview-box">🔮 <strong>Vorschau auf morgen:</strong> ${day.preview}</div>
@@ -294,6 +297,15 @@ function renderExcursions() {
   `;
 }
 
+function renderRueckblick1Klasse() {
+  return `
+    <h1 class="page-title">🔁 Rückblick 1. Klasse</h1>
+    <p class="page-subtitle">Die wichtigsten Rechenregeln aus der 1. Klasse — als kurze Auffrischung,
+    bevor es mit den neuen Themen der 2. Klasse losgeht.</p>
+    ${RECAP_1KLASSE_HTML}
+  `;
+}
+
 const ROUTES = {
   welcome: () => `<h1 class="page-title">💌 Willkommensbrief</h1>${WELCOME_LETTER_HTML}`,
   schedule: () => `<h1 class="page-title">🗓️ Tagesplan</h1>${SCHEDULE_HTML}`,
@@ -302,6 +314,7 @@ const ROUTES = {
   materials: renderMaterials,
   excursions: renderExcursions,
   closing: () => `<h1 class="page-title">🎉 Abschluss</h1>${CLOSING_HTML}`,
+  "leo-rueckblick1": renderRueckblick1Klasse,
   "leo-mathe": () => renderLeoSubject("mathe"),
   "leo-deutsch": () => renderLeoSubject("deutsch"),
   "leo-lesen": () => renderLeoSubject("lesen"),
@@ -522,7 +535,13 @@ if (sidebarOverlay) {
 // ---------- Drucken ----------
 document.getElementById("printAllBtn").addEventListener("click", () => {
   const savedRoute = currentRoute, savedDay = currentDay;
-  let html = "";
+  let html = `<div class="card allow-break" style="margin-bottom:30px;">
+    <h3>🎁 Bonus: Interaktive Web-Version</h3>
+    <p>Als Komplett-Käufer:in habt ihr zusätzlich Zugriff auf die interaktive Web-Version mit
+    klickbaren Sternen und Live-Fortschrittsanzeige — läuft direkt im Browser auf Handy, Tablet
+    oder Computer, keine Installation nötig:</p>
+    <p><a href="https://helena120908.github.io/forscher-akademie-sonnenberg/" target="_blank">https://helena120908.github.io/forscher-akademie-sonnenberg/</a></p>
+  </div>`;
   for (const r of Object.keys(ROUTES)) {
     currentRoute = r;
     for (let d = 1; d <= TOTAL_DAYS; d++) {
@@ -540,7 +559,9 @@ document.getElementById("printAllBtn").addEventListener("click", () => {
   }
   printAreaEl.innerHTML = html;
   currentRoute = savedRoute; currentDay = savedDay;
-  window.print();
+  // Kurze Verzögerung, damit der Browser das frisch eingefügte #printArea vor dem Druckdialog layoutet
+  // (sonst liefert v.a. Safari leere/weiße Seiten, weil der Inhalt vorher display:none war)
+  setTimeout(() => window.print(), 150);
 });
 
 // ---------- Start ----------

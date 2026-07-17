@@ -130,7 +130,7 @@ function trackerGridHtml(activeColor, child) {
 const TRACKER_HTML = `
   <p class="page-subtitle">Tipp: Tippt auf einen Tag, um ihn abzuhaken — der Rang aktualisiert sich live!</p>
   <div class="two-col">
-    <div class="card">
+    <div class="card allow-break">
       <h3>🦁 Kadett-XP-Tracker</h3>
       <p>Für jede erledigte Aufgabe gibt es 10–30 XP, je nach Schwierigkeit. Ein Klebefeld pro Tag
       wartet auf einen Sticker, sobald das Tagesprogramm geschafft ist.</p>
@@ -148,7 +148,7 @@ const TRACKER_HTML = `
       <p class="tracker-live-count" style="font-size:13px;color:#6b7280;">0 von ${TOTAL_DAYS} Tagen abgehakt</p>
       ${trackerGridHtml("#4f46e5", "leo")}
     </div>
-    <div class="card">
+    <div class="card allow-break">
       <h3>🐢 Forscherkind-Sterne-Tracker</h3>
       <p>Kein Testcharakter, kein Punktesystem — jede Teilnahme ist ein Erfolg! Für jeden Kurstag gibt
       es einen Stern oder Sticker zum Aufkleben.</p>
@@ -315,19 +315,19 @@ const CLOSING_HTML = `
       <h3>🦁 Kadett-Tagesdiplom (Vorlage)</h3>
       <p style="font-size:14px;">
       <strong>Urkunde der Forscher-Akademie Sonnenberg</strong><br>
-      Hiermit wird bestätigt, dass Kadett <strong>_______________</strong> heute tapfer
+      Hiermit wird bestätigt, dass Kadett <strong>_________________________</strong> heute tapfer
       geforscht, gerechnet und gelesen hat.<br>
-      Verdiente XP heute: ______<br>
-      Unterschrift der Akademie: ______</p>
+      Verdiente XP heute: ____________________<br>
+      Unterschrift der Akademie: ____________________</p>
     </div>
     <div class="card">
       <h3>🐢 Forscherkind-Tagesdiplom (Vorlage)</h3>
       <p style="font-size:14px;">
       <strong>Urkunde der Forscher-Akademie Sonnenberg</strong><br>
-      Hiermit wird bestätigt, dass das Forscherkind <strong>_______________</strong>
+      Hiermit wird bestätigt, dass das Forscherkind <strong>_________________________</strong>
       heute mutig mitgemacht hat.<br>
-      Verdiente Sterne heute: ______<br>
-      Unterschrift der Akademie: ______</p>
+      Verdiente Sterne heute: ____________________<br>
+      Unterschrift der Akademie: ____________________</p>
     </div>
   </div>
   <div class="card">
@@ -341,6 +341,41 @@ const CLOSING_HTML = `
   </div>
 `;
 
+const RECAP_1KLASSE_HTML = `
+  <div class="card">
+    <h3 style="color:var(--color-mathe);">🔟 Zehner und Einer</h3>
+    <p>Jede zweistellige Zahl besteht aus Zehnern und Einern. Bei <strong>64</strong> sind das
+    <strong>6 Zehner</strong> und <strong>4 Einer</strong>. Das brauchst du für fast jede Rechnung.</p>
+  </div>
+  <div class="card">
+    <h3 style="color:var(--color-mathe);">➕➖ Plus und Minus ohne Übergang</h3>
+    <p>Solange man beim Rechnen im selben Zehner bleibt, ist es einfach:</p>
+    <p style="font-size:16px;"><strong>23 + 5 = 28</strong> &nbsp;&nbsp; <strong>38 − 6 = 32</strong></p>
+    <p style="font-size:13.5px;color:#6b7280;">Man rechnet einfach mit den Einern weiter, die Zehner bleiben gleich.</p>
+  </div>
+  <div class="card">
+    <h3 style="color:var(--color-mathe);">⚖️ Zahlen vergleichen</h3>
+    <p>Mit diesen Zeichen vergleicht man zwei Zahlen:</p>
+    <p style="font-size:16px;"><strong>7 &gt; 4</strong> (größer als) &nbsp;&nbsp; <strong>4 &lt; 7</strong> (kleiner als) &nbsp;&nbsp; <strong>5 = 5</strong> (gleich)</p>
+  </div>
+  <div class="card">
+    <h3 style="color:var(--color-mathe);">💞 Die "verliebten Zahlen"</h3>
+    <p>Zahlenpaare, die zusammen genau <strong>10</strong> ergeben — die kennst du am besten auswendig,
+    denn viele Rechentricks bauen darauf auf:</p>
+    <p style="font-size:16px;">1 + 9 &nbsp;·&nbsp; 2 + 8 &nbsp;·&nbsp; 3 + 7 &nbsp;·&nbsp; 4 + 6 &nbsp;·&nbsp; 5 + 5</p>
+  </div>
+  <div class="card">
+    <h3 style="color:var(--color-mathe);">✖️ Verdoppeln und Halbieren</h3>
+    <p><strong>Verdoppeln</strong> heißt: eine Zahl zu sich selbst addieren. <strong>4 + 4 = 8</strong>.<br>
+    <strong>Halbieren</strong> heißt: eine Zahl in zwei gleich große Teile teilen. Die Hälfte von <strong>8</strong> ist <strong>4</strong>.</p>
+  </div>
+  <div class="card" style="border-color:var(--color-mathe);background:#fff7ed;">
+    <p style="margin:0;font-size:14px;"><strong>Und jetzt geht's weiter:</strong> Auf den nächsten Seiten lernst du
+    neue Rechentricks für Plus und Minus mit Zehnerübergang — wir starten mit dem Einfachsten und steigern
+    uns langsam. Alles baut genau auf dem auf, was du hier gerade wiederholt hast.</p>
+  </div>
+`;
+
 // ============================================================
 // LEO — Fächer
 // ============================================================
@@ -351,37 +386,32 @@ const LEO = {
     label: "Mathe",
     days: {
       day1: {
-        parentNote: "Heute lernt dein Kadett den <strong>Ergänzungstrick</strong> für die Subtraktion mit Zehnerübergang. Aufgaben mit Zehnerübergang wie 64 – 28 bereiten Kindern in der 2. Klasse oft Schwierigkeiten. Genau darauf ist dieses Heft ausgerichtet – mit gezielten Übungen zu dieser einen Aufgabenart.",
-        theoryTitle: "Subtraktion mit dem Ergänzungstrick",
+        parentNote: "Heute rechnet dein Kadett zum ersten Mal im Zahlenraum bis 100 und entdeckt dabei, wie einfach sich Zehner und Einer getrennt addieren lassen. Genau dieser entspannte Einstieg gibt ihm die Sicherheit, die er für die kniffligeren Tricks der nächsten Tage braucht. So beginnt die Woche mit einem echten Erfolgserlebnis.",
+        theoryTitle: "Addition ohne Zehnerübergang",
         theoryHtml: `
-          <p>Wenn man zwei Zahlen subtrahiert und bei den Einern nicht "normal" abziehen kann
-          (weil die zweite Ziffer größer ist als die erste), hilft dieser Trick:</p>
-          <p><strong>Beispiel: 64 − 37 = ?</strong></p>
+          <p>Bei der Addition hilft es, Zehner und Einer getrennt zu addieren:</p>
+          <p><strong>Beispiel: 23 + 34 = ?</strong></p>
           <ol>
-            <li>Schau nur auf die letzten Ziffern: <strong>4</strong> und <strong>7</strong>.</li>
-            <li>Da 7 größer ist als 4, rechnest du: 7 − 4 = 3.</li>
-            <li>Jetzt suchst du die "verliebte Zahl" von 3 (die Zahl, die mit 3 zusammen 10 ergibt):
-            3 + 7 = 10 → die 7 ist die letzte Ziffer des Ergebnisses.</li>
-            <li>Jetzt die Zehner: 6 − 3 = 3.</li>
-            <li>Weil wir bei den Einern "geliehen" haben, ziehen wir von den Zehnern noch 1 ab: 3 − 1 = 2.</li>
-            <li>Ergebnis: <strong>27</strong>.</li>
+            <li>Zehner getrennt addieren: 20 + 30 = 50.</li>
+            <li>Einer getrennt addieren: 3 + 4 = 7.</li>
+            <li>Beides zusammenzählen: 50 + 7 = 57.</li>
           </ol>
-          <p><strong>Zweites Beispiel: 52 − 28 = ?</strong></p>
+          <p><strong>Zweites Beispiel: 45 + 32 = ?</strong></p>
           <ol>
-            <li>Einer: 2 und 8. Da 8 größer ist: 8 − 2 = 6.</li>
-            <li>Verliebte Zahl von 6 ist 4 (6+4=10) → letzte Ziffer des Ergebnisses ist 4.</li>
-            <li>Zehner: 5 − 2 = 3, minus 1 fürs Leihen = 2.</li>
-            <li>Ergebnis: <strong>24</strong>.</li>
+            <li>Zehner: 40 + 30 = 70.</li>
+            <li>Einer: 5 + 2 = 7.</li>
+            <li>Zusammen: 70 + 7 = 77.</li>
           </ol>
-          <p style="font-size:13.5px;color:#6b7280;">Dieser Trick funktioniert später genauso bei
-          dreistelligen Zahlen — das üben wir aber erst, wenn die zweistellige Version ganz sicher sitzt.</p>
+          <p style="font-size:13.5px;color:#6b7280;">Hier ergeben die Einer zusammen nie mehr als 10 —
+          dadurch bleibt es einfach. In den nächsten Tagen kommt der Fall dazu, dass die Einer zusammen
+          über 10 kommen (der sogenannte Zehnerübergang) — dafür gibt es dann eigene Tricks.</p>
         `,
-        exercises: [
-          [52,28],[71,45],[83,56],[44,19],[92,67],[61,34],[55,28],[73,46],[82,55],[93,76],
-          [41,23],[62,45],[84,27],[91,53],[70,42],[53,26],[64,28],[81,34],[92,45],[45,19],
-          [63,27],[74,38],[85,49],[96,58],[51,24]
+        exercisesAdd: [
+          [23,34],[45,32],[52,16],[61,27],[34,53],[26,41],[72,15],[43,25],[38,21],[56,13],
+          [24,63],[47,31],[15,82],[36,42],[58,11],[27,52],[64,23],[41,36],[73,14],[25,44],
+          [32,57],[46,21],[63,25],[18,71],[54,33]
         ],
-        preview: "Morgen üben wir den Ergänzungstrick weiter mit noch etwas größeren Zahlen, damit er ganz sicher sitzt, bevor es mit neuen Themen weitergeht.",
+        preview: "Morgen kommt der nächste Schritt: Was macht man, wenn die Einer zusammen mehr als 10 ergeben? Dafür gibt es einen cleveren Trick, die stellenweise Addition.",
         bonus: {
           title: "✨ Einblick 3. Klasse (Bonus, freiwillig)",
           html: `<p>In der 3. Klasse lernt man, ein Ganzes in gleich große Teile zu zerlegen und
@@ -414,7 +444,7 @@ const LEO = {
         }
       },
       day2: {
-        parentNote: "Heute lernt dein Kadett einen zweiten cleveren Rechentrick: die <strong>stellenweise Addition</strong>. Damit rechnet er Aufgaben wie 49 + 36 sicher im Kopf, indem er Zehner und Einer getrennt addiert — ein Kniff, den auch viele Erwachsene beim Kopfrechnen nutzen.",
+        parentNote: "Dein Kadett rechnet inzwischen sicher im Zahlenraum bis 100 – heute kommt der erste richtige Rechentrick dazu. Mit der stellenweisen Addition löst er Aufgaben wie 49 + 36 im Kopf, ganz so, wie es auch viele Erwachsene tun. Ein kleiner Aha-Moment, auf den du dich freuen darfst.",
         theoryTitle: "Addition mit dem Trick der stellenweisen Addition",
         theoryHtml: `
           <p>Bei der Addition mit Zehnerübergang hilft es, Zehner und Einer getrennt zu addieren:</p>
@@ -430,16 +460,16 @@ const LEO = {
             <li>Einer: 7 + 8 = 15.</li>
             <li>Zusammen: 70 + 15 = 85.</li>
           </ol>
-          <p style="font-size:13.5px;color:#6b7280;">Das ist der gleiche Trick, den wir gestern
-          beim Subtrahieren schon in einer ähnlichen Form kennengelernt haben — Zehner und Einer
-          getrennt betrachten macht große Rechnungen einfacher.</p>
+          <p style="font-size:13.5px;color:#6b7280;">Der Unterschied zu gestern: Die Einer ergeben jetzt
+          zusammen mehr als 10 (hier 15). Das macht nichts — man zählt einfach ganz normal weiter
+          zusammen, wie oben gezeigt.</p>
         `,
         exercisesAdd: [
           [49,36],[27,58],[38,47],[56,29],[64,18],[35,29],[48,37],[26,49],[57,34],[63,28],
           [19,46],[28,53],[37,45],[46,38],[55,27],[68,19],[29,64],[47,36],[58,25],[34,58],
           [24,68],[39,27],[46,29],[58,36],[27,45]
         ],
-        preview: "Morgen üben wir die Addition mit Zehnerübergang weiter, damit sie genauso sicher sitzt wie die Subtraktion.",
+        preview: "Morgen lernst du einen zweiten Trick für die Addition mit Zehnerübergang: den Ausgleichstrick.",
         bonus: {
           title: "✨ Einblick 3. Klasse (Bonus, freiwillig)",
           html: `<p>Gestern haben wir <strong>1/2</strong> und <strong>1/4</strong> kennengelernt.
@@ -469,7 +499,7 @@ const LEO = {
         }
       },
       day3: {
-        parentNote: "Heute lernt dein Kadett den <strong>Ausgleichstrick</strong> — eine zweite, oft noch schnellere Methode für die Addition mit Zehnerübergang.",
+        parentNote: "Heute lernt dein Kadett einen zweiten cleveren Weg, um mit Zehnerübergang zu rechnen: den Ausgleichstrick. Zwei Wege zum gleichen Ziel zu kennen, macht selbstbewusst – dein Kind darf sich später aussuchen, welcher Trick ihm leichter fällt.",
         theoryTitle: "Addition mit dem Ausgleichstrick",
         theoryHtml: `
           <p>Wenn eine Zahl fast eine "runde" Zehnerzahl ist (endet auf 8 oder 9), lohnt sich dieser Trick:</p>
@@ -494,7 +524,7 @@ const LEO = {
           [69,14],[28,37],[49,27],[38,45],[59,18],[28,56],[39,26],[48,29],[69,23],[19,47],
           [58,35],[29,38],[49,18],[68,27],[39,57]
         ],
-        preview: "Morgen üben wir gemischt: mal Subtraktion, mal Addition — dein Kadett entscheidet jeweils selbst, welcher Trick passt.",
+        preview: "Morgen lernst du einen neuen Trick — diesmal für die Subtraktion: den Ergänzungstrick.",
         bonus: {
           title: "✨ Einblick 3. Klasse (Bonus, freiwillig)",
           html: `<p>Nach 1/2 und 1/4 kommt heute <strong>1/3</strong> dazu — ein Ganzes in drei gleich
@@ -512,25 +542,37 @@ const LEO = {
         }
       },
       day4: {
-        parentNote: "Heute übt dein Kadett <strong>gemischt</strong>: mal Subtraktion, mal Addition mit Zehnerübergang. Er darf sich jeweils selbst aussuchen, welchen Trick er nutzt.",
-        theoryTitle: "Gemischte Übung: Subtraktion und Addition",
+        parentNote: "Nach der Addition kommt heute die Subtraktion dazu – mit dem Ergänzungstrick, extra für Aufgaben wie 64 – 28. Genau diese Art von Aufgaben bereitet vielen Kindern in der 2. Klasse Kopfzerbrechen. Heute übt dein Kadett gezielt genau das, bis es sitzt.",
+        theoryTitle: "Subtraktion mit dem Ergänzungstrick",
         theoryHtml: `
-          <p>Dein Kadett kennt jetzt drei Tricks:</p>
+          <p>Wenn man zwei Zahlen subtrahiert und bei den Einern nicht "normal" abziehen kann
+          (weil die zweite Ziffer größer ist als die erste), hilft dieser Trick:</p>
+          <p><strong>Beispiel: 64 − 37 = ?</strong></p>
           <ol>
-            <li><strong>Ergänzungstrick</strong> für die Subtraktion (Tag 1)</li>
-            <li><strong>Stellenweise Addition</strong> für die Addition (Tag 2)</li>
-            <li><strong>Ausgleichstrick</strong> als Alternative für die Addition (Tag 3)</li>
+            <li>Schau nur auf die letzten Ziffern: <strong>4</strong> und <strong>7</strong>.</li>
+            <li>Da 7 größer ist als 4, rechnest du: 7 − 4 = 3.</li>
+            <li>Jetzt suchst du die "verliebte Zahl" von 3 (die Zahl, die mit 3 zusammen 10 ergibt):
+            3 + 7 = 10 → die 7 ist die letzte Ziffer des Ergebnisses.</li>
+            <li>Jetzt die Zehner: 6 − 3 = 3.</li>
+            <li>Weil wir bei den Einern "geliehen" haben, ziehen wir von den Zehnern noch 1 ab: 3 − 1 = 2.</li>
+            <li>Ergebnis: <strong>27</strong>.</li>
           </ol>
-          <p>Heute kommen Plus- und Minusaufgaben gemischt vor. Der erste Schritt ist immer:
-          <strong>Erst schauen, ob ein Plus oder ein Minus dasteht</strong> — dann den passenden Trick anwenden.</p>
+          <p><strong>Zweites Beispiel: 52 − 28 = ?</strong></p>
+          <ol>
+            <li>Einer: 2 und 8. Da 8 größer ist: 8 − 2 = 6.</li>
+            <li>Verliebte Zahl von 6 ist 4 (6+4=10) → letzte Ziffer des Ergebnisses ist 4.</li>
+            <li>Zehner: 5 − 2 = 3, minus 1 fürs Leihen = 2.</li>
+            <li>Ergebnis: <strong>24</strong>.</li>
+          </ol>
+          <p style="font-size:13.5px;color:#6b7280;">Dieser Trick funktioniert später genauso bei
+          dreistelligen Zahlen — das üben wir aber erst, wenn die zweistellige Version ganz sicher sitzt.</p>
         `,
-        exercisesMixed: [
-          [74,38,"−"],[46,38,"+"],[91,56,"−"],[27,49,"+"],[62,27,"−"],[58,26,"+"],[83,49,"−"],[39,47,"+"],
-          [71,34,"−"],[24,68,"+"],[95,58,"−"],[35,49,"+"],[52,36,"−"],[68,17,"+"],[81,45,"−"],[29,54,"+"],
-          [63,28,"−"],[47,38,"+"],[90,52,"−"],[56,29,"+"],[84,57,"−"],[38,44,"+"],[73,46,"−"],[49,26,"+"],
-          [61,45,"−"]
+        exercises: [
+          [52,28],[71,45],[83,56],[44,19],[92,67],[61,34],[55,28],[73,46],[82,55],[93,76],
+          [41,23],[62,45],[84,27],[91,53],[70,42],[53,26],[64,28],[81,34],[92,45],[45,19],
+          [63,27],[74,38],[85,49],[96,58],[51,24]
         ],
-        preview: "Morgen wartet die große Freitags-Endboss-Challenge — eine Mischung aus allem, was diese Woche geübt wurde!",
+        preview: "Morgen wartet die große Freitags-Endboss-Challenge — eine Mischung aus Addition und Subtraktion, alles, was diese Woche geübt wurde!",
         bonus: {
           title: "✨ Einblick 3. Klasse (Bonus, freiwillig)",
           html: `<p>Wusstest du, dass manche Brüche gleich groß sind, obwohl sie unterschiedlich
@@ -559,17 +601,17 @@ const LEO = {
         }
       },
       day5: {
-        parentNote: "🎉 Freitag: Große Wiederholungsübung plus die Endboss-Challenge — der spannende Wochenabschluss!",
+        parentNote: "Freitag heißt: alles noch einmal zeigen, was diese Woche gelernt wurde – und dann die große Endboss-Challenge! Dein Kadett hat drei clevere Rechentricks im Gepäck und darf heute stolz beweisen, wie sicher er sie schon beherrscht. Ein Wochenabschluss, auf den man wirklich stolz sein kann.",
         theoryTitle: "Rückblick: Eine ganze Woche Rechentricks",
         theoryHtml: `
           <p>Diese Woche hat dein Kadett gelernt:</p>
           <ul>
-            <li>Den <strong>Ergänzungstrick</strong> für die Subtraktion mit Zehnerübergang</li>
+            <li>Addition <strong>ohne</strong> Zehnerübergang als sichere Grundlage</li>
             <li>Die <strong>stellenweise Addition</strong> für die Addition mit Zehnerübergang</li>
             <li>Den <strong>Ausgleichstrick</strong> als zweite Additions-Methode</li>
-            <li>Gemischtes Rechnen — selbst entscheiden, welcher Trick gerade passt</li>
+            <li>Den <strong>Ergänzungstrick</strong> für die Subtraktion mit Zehnerübergang</li>
           </ul>
-          <p>Heute wird alles noch einmal geübt — und dann wartet die Endboss-Challenge!</p>
+          <p>Heute wird alles noch einmal gemischt geübt — und dann wartet die Endboss-Challenge!</p>
         `,
         exercisesMixed: [
           [82,47,"−"],[27,36,"+"],[94,58,"−"],[48,29,"+"],[71,26,"−"],[56,38,"+"],[63,39,"−"],[19,67,"+"],
@@ -600,6 +642,47 @@ const LEO = {
               und verdient sich ein extra großes Tierabzeichen für die Dschungel-Insel.</p>
             </div>
           `
+        },
+        bonus: {
+          title: "✨ Einblick 3. Klasse (Bonus, freiwillig)",
+          html: `<p>Diese Woche hast du 1/2, 1/4 und 1/3 kennengelernt — und weißt jetzt, dass 1/2
+          genauso groß ist wie 2/4. Heute lernst du, wie man Brüche mit dem <strong>gleichen Nenner</strong>
+          einfach <strong>zusammenrechnet</strong>.</p>
+          <div style="display:flex;gap:30px;align-items:center;flex-wrap:wrap;margin:14px 0;">
+            <div style="text-align:center;">
+              <svg width="100" height="100" viewBox="0 0 100 100">
+                <path d="M50 50 L50 5 A45 45 0 0 1 95 50 Z" fill="#2563eb" stroke="#1f2937" stroke-width="2"/>
+                <path d="M50 50 L95 50 A45 45 0 0 1 50 95 Z" fill="#dbeafe" stroke="#1f2937" stroke-width="2"/>
+                <path d="M50 50 L50 95 A45 45 0 0 1 5 50 Z" fill="#dbeafe" stroke="#1f2937" stroke-width="2"/>
+                <path d="M50 50 L5 50 A45 45 0 0 1 50 5 Z" fill="#dbeafe" stroke="#1f2937" stroke-width="2"/>
+              </svg>
+              <p style="font-size:13px;">1/4</p>
+            </div>
+            <div style="text-align:center;font-size:32px;color:#6b7280;">+</div>
+            <div style="text-align:center;">
+              <svg width="100" height="100" viewBox="0 0 100 100">
+                <path d="M50 50 L50 5 A45 45 0 0 1 95 50 Z" fill="#2563eb" stroke="#1f2937" stroke-width="2"/>
+                <path d="M50 50 L95 50 A45 45 0 0 1 50 95 Z" fill="#dbeafe" stroke="#1f2937" stroke-width="2"/>
+                <path d="M50 50 L50 95 A45 45 0 0 1 5 50 Z" fill="#dbeafe" stroke="#1f2937" stroke-width="2"/>
+                <path d="M50 50 L5 50 A45 45 0 0 1 50 5 Z" fill="#dbeafe" stroke="#1f2937" stroke-width="2"/>
+              </svg>
+              <p style="font-size:13px;">1/4</p>
+            </div>
+            <div style="text-align:center;font-size:32px;color:#6b7280;">=</div>
+            <div style="text-align:center;">
+              <svg width="100" height="100" viewBox="0 0 100 100">
+                <path d="M50 50 L50 5 A45 45 0 0 1 95 50 Z" fill="#2563eb" stroke="#1f2937" stroke-width="2"/>
+                <path d="M50 50 L95 50 A45 45 0 0 1 50 95 Z" fill="#2563eb" stroke="#1f2937" stroke-width="2"/>
+                <path d="M50 50 L50 95 A45 45 0 0 1 5 50 Z" fill="#dbeafe" stroke="#1f2937" stroke-width="2"/>
+                <path d="M50 50 L5 50 A45 45 0 0 1 50 5 Z" fill="#dbeafe" stroke="#1f2937" stroke-width="2"/>
+              </svg>
+              <p style="font-size:13px;">2/4</p>
+            </div>
+          </div>
+          <p>Wenn der Nenner (die untere Zahl) gleich bleibt, addiert man einfach die Zähler (die
+          oberen Zahlen): <strong>1/4 + 1/4 = 2/4</strong>. Und 2/4 kennst du schon — das ist dasselbe wie 1/2!</p>
+          <p>Übung (freiwillig): Was ergibt 1/4 + 2/4?</p>
+          <p style="font-size:13px;color:#6b7280;">Lösung: 3/4.</p>`
         }
       }
     }
@@ -610,7 +693,7 @@ const LEO = {
     label: "Deutsch",
     days: {
       day1: {
-        parentNote: "Neues Thema heute: <strong>Nomen (Namenwörter)</strong> erkennen. Nomen werden in der 2. Klasse mit zwei festen Proben geprüft — das üben wir heute.",
+        parentNote: "Heute lernt dein Kadett, wie man Nomen sicher erkennt – mit zwei kleinen Proben, die in der 2. Klasse fest dazugehören. Wer diese Proben einmal verinnerlicht hat, hat ein Werkzeug für die ganze Grundschulzeit. Ein schöner, klarer Einstieg in die Grammatik.",
         theoryTitle: "Nomen erkennen",
         theoryHtml: `
           <p>Nomen sind Wörter für Personen, Tiere, Dinge oder Sachen. Man erkennt sie mit zwei Proben:</p>
@@ -652,7 +735,7 @@ const LEO = {
         preview: "Morgen schauen wir uns Verben an und lernen die Ich-Probe, um sie von Nomen zu unterscheiden."
       },
       day2: {
-        parentNote: "Neues Thema heute: <strong>Verben (Tätigkeitswörter)</strong> erkennen — mit der Ich-Probe und der Veränder-Probe.",
+        parentNote: "Nach den Nomen kommt heute die nächste Wortart dazu: Verben, erkannt mit der Ich-Probe und der Veränder-Probe. Zwei Wortarten unterscheiden zu können, ist die Grundlage für fast jede Grammatikregel, die noch folgt. Dein Kadett baut sich gerade sein sprachliches Handwerkszeug auf.",
         theoryTitle: "Verben erkennen",
         theoryHtml: `
           <p>Verben sind Wörter für Tätigkeiten — Dinge, die man tut. Man erkennt sie mit zwei Proben:</p>
@@ -693,7 +776,7 @@ const LEO = {
         preview: "Morgen schauen wir uns Adjektive an — Wörter, die beschreiben, wie etwas ist."
       },
       day3: {
-        parentNote: "Neues Thema heute: <strong>Adjektive (Wiewörter)</strong> erkennen — mit der Wie-Probe.",
+        parentNote: "Heute wird das Bild komplett: Adjektive, erkannt mit der Wie-Probe. Damit kennt dein Kind ab heute alle drei wichtigen Wortarten der 2. Klasse. Ein echter Grund, stolz zu sein.",
         theoryTitle: "Adjektive erkennen",
         theoryHtml: `
           <p>Adjektive beschreiben, wie etwas ist. Man erkennt sie mit der Wie-Probe:</p>
@@ -733,7 +816,7 @@ const LEO = {
         preview: "Morgen wiederholen wir Nomen, Verben und Adjektive gemischt, damit dein Kadett alle drei sicher unterscheiden kann."
       },
       day4: {
-        parentNote: "Heute wiederholt dein Kadett <strong>Nomen, Verben und Adjektive gemischt</strong> — er entscheidet bei jedem Wort selbst, welche Wortart es ist.",
+        parentNote: "Jetzt kommt der spannende Teil: Nomen, Verben und Adjektive gemischt erkennen. Dein Kadett muss sich bei jedem Wort neu entscheiden – genau das macht aus Wissen echtes Können. So wird Grammatik zu etwas, das dein Kind einfach kann, lebendig und alltagstauglich.",
         theoryTitle: "Wortarten gemischt bestimmen",
         theoryHtml: `
           <p>Zur Erinnerung, alle drei Proben:</p>
@@ -764,7 +847,7 @@ const LEO = {
         preview: "Morgen wartet die Freitags-Endboss-Challenge — auch mit einer Wortarten-Aufgabe!"
       },
       day5: {
-        parentNote: "🎉 Freitag: Große Wortarten-Wiederholung zum Abschluss der ersten Woche — Nomen, Verben und Adjektive gemischt, mit neuen Beispielen.",
+        parentNote: "Freitag: noch einmal alles zeigen, was diese Woche an Wortarten gelernt wurde. Dein Kadett hat sich in dieser Woche ein komplettes Grundgerüst für die 2. Klasse aufgebaut. Zeit für einen verdienten Wochenabschluss.",
         theoryTitle: "Wortarten-Endboss",
         theoryHtml: `
           <p>Zur Erinnerung, alle drei Proben:</p>
@@ -802,7 +885,7 @@ const LEO = {
     label: "Lesen",
     days: {
       day1: {
-        parentNote: "Leseübung auf 2.-Klasse-Niveau, ca. 15 Minuten: Text vorlesen lassen (laut, in eigenem Tempo), dann die Verständnisfragen gemeinsam beantworten und die kurze Schreibaufgabe erledigen.",
+        parentNote: "Heute liest dein Kadett die Geschichte vom mutigen Tiger Rufus – laut, in seinem eigenen Tempo. Lautes Vorlesen übt nicht nur die Aussprache, sondern auch, den Sinn eines Textes wirklich zu verstehen. Und ganz nebenbei erzählt die Geschichte, wie schön es ist, anderen zu helfen.",
         theoryTitle: "Der mutige Tiger",
         theoryHtml: `
           <p>Im dichten Dschungel lebte ein junger Tiger namens Rufus. Rufus hatte ein besonderes
@@ -867,27 +950,31 @@ const LEO = {
         }
       },
       day2: {
-        parentNote: "Leseübung auf 2.-Klasse-Niveau, ca. 15 Minuten: Text vorlesen lassen, dann Verständnisfragen und Schreibaufgabe gemeinsam bearbeiten.",
+        parentNote: "Die kluge Schlange Kiara zeigt heute, wie man einen Streit klug lösen kann. Nach dem Lesen warten Verständnisfragen und eine kleine Schreibaufgabe – eine schöne Gelegenheit für ein Gespräch über eigene Streitigkeiten. Lesen und Nachdenken gehen hier Hand in Hand.",
         theoryTitle: "Kiara, die kluge Schlange",
         theoryHtml: `
           <p>Kiara war eine grüne Schlange, die im hohen Gras der Dschungel-Insel lebte. Anders als
           viele andere Schlangen war Kiara nicht gefährlich — sie ernährte sich nur von kleinen
           Insekten und mochte es, den anderen Tieren zuzuhören und ihnen bei ihren Problemen zu
-          helfen.</p>
+          helfen. Am liebsten lag sie in der warmen Mittagssonne auf einem flachen Stein und
+          beobachtete, wie das Leben auf der Dschungel-Insel an ihr vorbeizog.</p>
           <p>Eines Tages hörte Kiara ein lautes Streitgespräch am Flussufer. Der Affe Momo und der
           Frosch Felix stritten sich um den schönsten Platz am Fluss, direkt unter einem schattigen
           Baum. "Ich war zuerst hier!", rief Momo und stampfte mit dem Fuß auf. "Nein, ich!", rief
           Felix zurück und blies wütend seine Backen auf. Die beiden stritten schon eine ganze Weile,
-          und keiner wollte nachgeben.</p>
-          <p>Kiara schlängelte sich neugierig näher heran und beobachtete die beiden eine Zeit lang.
-          "Warum teilt ihr euch den Platz nicht einfach?", schlug sie schließlich vor. "Morgens, wenn
-          die Sonne noch nicht so heiß ist, kann Momo dort sitzen und die kühle Luft genießen. Und
-          nachmittags, wenn es heißer wird, ist Felix an der Reihe und kann sich im Schatten
-          abkühlen."</p>
+          und keiner wollte nachgeben. Sogar die Vögel in den Bäumen über ihnen wurden unruhig von
+          dem lauten Gezank.</p>
+          <p>Kiara schlängelte sich neugierig näher heran und beobachtete die beiden eine Zeit lang,
+          bevor sie sich einmischte. "Warum teilt ihr euch den Platz nicht einfach?", schlug sie
+          schließlich vor. "Morgens, wenn die Sonne noch nicht so heiß ist, kann Momo dort sitzen und
+          die kühle Luft genießen. Und nachmittags, wenn es heißer wird, ist Felix an der Reihe und
+          kann sich im Schatten abkühlen."</p>
           <p>Momo und Felix schauten sich überrascht an. Das war eine wirklich gute Idee, auf die sie
           selbst nicht gekommen waren! Sie bedankten sich bei Kiara und vertrugen sich sofort wieder.
-          Von diesem Tag an fragten die Tiere im Dschungel immer öfter die kluge Schlange Kiara um
-          Rat, wenn sie sich stritten oder nicht weiterwussten.</p>
+          Zur Feier des Tages verbrachten sie den restlichen Nachmittag gemeinsam am Fluss, planschten
+          im seichten Wasser und lachten über ihren albernen Streit. Von diesem Tag an fragten die
+          Tiere im Dschungel immer öfter die kluge Schlange Kiara um Rat, wenn sie sich stritten oder
+          nicht weiterwussten.</p>
         `,
         exerciseHtml: `
           <h4 style="font-family:var(--font-fun);">📋 Verständnisfragen</h4>
@@ -925,29 +1012,43 @@ const LEO = {
         }
       },
       day3: {
-        parentNote: "Leseübung auf 2.-Klasse-Niveau, ca. 15 Minuten: Text vorlesen lassen, dann Verständnisfragen und Schreibaufgabe gemeinsam bearbeiten.",
+        parentNote: "Heute ist die Geschichte etwas länger: Karl das Krokodil zeigt, dass man niemanden nach dem ersten Eindruck beurteilen sollte. Genau diese Länge tut gut – dein Kind übt sich in Ausdauer beim Zuhören und Lesen. Eine Geschichte mit einer schönen Botschaft.",
         theoryTitle: "Das schlaue Krokodil",
         theoryHtml: `
           <p>Am Flussufer der Dschungel-Insel lebte ein altes Krokodil namens Karl. Karl lag den
           ganzen Tag reglos im Wasser und sah aus wie ein alter, moosbedeckter Ast. Viele Tiere hatten
           großen Respekt vor ihm, denn Krokodile haben kräftige Zähne und einen langen Schwanz, mit dem
-          sie kräftig schlagen können. Die meisten Tiere schwammen deshalb lieber weit um Karl herum.</p>
+          sie kräftig schlagen können. Die meisten Tiere schwammen deshalb lieber weit um Karl herum.
+          Schon seit vielen Jahren lebte er an dieser Stelle des Flusses und kannte jede Strömung und
+          jeden glatten Stein unter der Wasseroberfläche ganz genau.</p>
           <p>Eines Tages wollte der kleine Frosch Felix unbedingt über den Fluss springen, um seine
           Familie auf der anderen Seite zu besuchen. Doch die Strömung war an diesem Tag viel zu stark
           und die Wellen schlugen hoch. "Oh nein, wie komme ich nur ans andere Ufer?", rief Felix
           verzweifelt und blickte ängstlich auf das reißende Wasser.</p>
           <p>Karl, das Krokodil, hob langsam seinen Kopf aus dem Wasser. "Ich kann dir helfen", sagte
           er mit ruhiger, tiefer Stimme. "Spring auf meinen Rücken, ich bringe dich sicher hinüber." Der
-          kleine Frosch erschrak zunächst, denn er hatte noch nie mit einem Krokodil gesprochen.</p>
-          <p>Felix zögerte lange, aber Karls Augen wirkten freundlich und geduldig. Schließlich fasste
-          er sich ein Herz und sprang auf den breiten, schuppigen Rücken des Krokodils. Karl schwamm
-          ganz langsam und vorsichtig gegen die starke Strömung ans andere Ufer, damit Felix nicht
-          herunterrutschte. Endlich kam Felix sicher an und sprang erleichtert von Karls Rücken auf
-          das trockene Ufer.</p>
+          kleine Frosch erschrak zunächst, denn er hatte noch nie mit einem Krokodil gesprochen, und
+          sein Herz klopfte bis zum Hals.</p>
+          <p>Felix zögerte lange und schaute unsicher zwischen dem reißenden Fluss und dem großen
+          Krokodil hin und her. Aber Karls Augen wirkten freundlich und geduldig, ganz anders, als
+          Felix es sich vorgestellt hatte. Schließlich fasste er sich ein Herz und sprang auf den
+          breiten, schuppigen Rücken des Krokodils. Karl schwamm ganz langsam und vorsichtig gegen
+          die starke Strömung ans andere Ufer, damit Felix nicht herunterrutschte. Mitten im Fluss
+          spritzte eine hohe Welle über sie hinweg, und Felix klammerte sich fest an eine der harten
+          Rückenschuppen. "Halt dich einfach gut fest, ich lasse dich nicht fallen", brummte Karl
+          beruhigend. Endlich kam Felix sicher an und sprang erleichtert von Karls Rücken auf das
+          trockene Ufer.</p>
           <p>"Danke, Karl! Ich hatte solche Angst vor dir, aber du bist gar nicht gefährlich!", sagte
-          Felix erstaunt. Karl lächelte müde. "Nicht jedes Tier, das gefährlich aussieht, ist auch
-          böse", antwortete er weise, "und manchmal lohnt es sich, genauer hinzuschauen, bevor man
-          jemanden fürchtet."</p>
+          Felix erstaunt und schüttelte sich das Wasser aus den Augen. Karl lächelte müde. "Nicht
+          jedes Tier, das gefährlich aussieht, ist auch böse", antwortete er weise, "und manchmal
+          lohnt es sich, genauer hinzuschauen, bevor man jemanden fürchtet." Felix nickte nachdenklich
+          und versprach, bald mit seiner ganzen Familie wiederzukommen, um Karl richtig
+          kennenzulernen.</p>
+          <p>Am Abend erzählte Felix allen Fröschen in seiner Familie von seinem neuen Freund am
+          Fluss. Zuerst wollte ihm niemand glauben, dass ausgerechnet das gefürchtete Krokodil so
+          freundlich sein sollte — aber schon am nächsten Tag besuchten sie Karl gemeinsam, und von
+          diesem Tag an hatte Karl viele neue Freunde am Fluss. Er musste nie wieder ganz allein wie
+          ein moosbedeckter Ast im Wasser liegen.</p>
         `,
         exerciseHtml: `
           <h4 style="font-family:var(--font-fun);">📋 Verständnisfragen</h4>
@@ -985,21 +1086,37 @@ const LEO = {
         }
       },
       day4: {
-        parentNote: "Leseübung auf 2.-Klasse-Niveau, ca. 15 Minuten: Text vorlesen lassen, dann Verständnisfragen und Schreibaufgabe gemeinsam bearbeiten.",
+        parentNote: "Ein Sturm zieht über den Dschungel – und alle Freunde helfen zusammen, ein neues Nest zu bauen. Frag dein Kind danach ruhig, welches Tier ihm am besten beim Helfen gefallen hat. Zusammenhalt macht eben stark, auch in Geschichten.",
         theoryTitle: "Der Sturm im Dschungel",
         theoryHtml: `
-          <p>Eines Nachmittags zog ein starker Sturm über die Dschungel-Insel. Der Wind riss Äste von
-          den Bäumen, und Cocos Nest fiel aus seinem Baum herunter. Der kleine Papagei war verzweifelt:
-          "Wo soll ich jetzt nur schlafen?"</p>
-          <p>Rufus der Tiger hörte Cocos Rufe und trommelte sofort seine Freunde zusammen: Momo den
-          Affen, Kiara die Schlange und Karl das Krokodil. "Wir bauen Coco gemeinsam ein neues Nest!",
-          schlug Rufus vor.</p>
-          <p>Momo sammelte starke Äste, Kiara flocht sie geschickt mit Gras zusammen, und Karl trug
-          die schwersten Zweige mit seinem starken Schwanz heran. Rufus passte auf, dass alles sicher
-          befestigt war.</p>
-          <p>Nach einer Stunde war das neue Nest fertig — sogar stabiler als das alte! Coco war überglücklich.
-          "Danke, dass ihr alle geholfen habt! Allein hätte ich das niemals so schnell geschafft."</p>
-          <p>Rufus lächelte. "Dafür sind Freunde da. Gemeinsam schaffen wir alles."</p>
+          <p>Eines Nachmittags verdunkelte sich plötzlich der Himmel über der Dschungel-Insel. Dicke
+          graue Wolken zogen heran, der Wind wurde von Minute zu Minute stärker, und schon bald zog
+          ein heftiger Sturm über den Dschungel. Die Bäume bogen sich unter den Windböen, Blätter
+          wirbelten durch die Luft, und dicke Äste brachen krachend von den Ästen ab. Mitten in diesem
+          Chaos fiel Cocos Nest aus seinem Baum herunter und zerbrach am Boden in viele Einzelteile.
+          Der kleine Papagei saß nass und zitternd daneben und war ganz verzweifelt: "Wo soll ich jetzt
+          nur schlafen?"</p>
+          <p>Rufus der Tiger hörte Cocos verzweifelte Rufe durch den Wind und lief sofort los, um seine
+          Freunde zusammenzutrommeln: Momo den Affen, Kiara die Schlange und Karl das Krokodil. Der
+          Regen prasselte inzwischen so stark, dass Rufus kaum die Augen offenhalten konnte, aber er
+          gab nicht auf, bis alle vier zusammengefunden hatten. "Wir bauen Coco gemeinsam ein neues
+          Nest!", schlug er vor, und alle waren sofort einverstanden — schließlich war Coco einer von
+          ihnen, und im Sturm hilft man sich gegenseitig.</p>
+          <p>Jeder half auf seine eigene Weise mit: Momo kletterte flink von Baum zu Baum, obwohl die
+          Äste im Wind hin und her schwankten, und sammelte starke, biegsame Zweige ein. Kiara flocht
+          sie geschickt mit langen Grashalmen zu einem festen Geflecht zusammen, wobei sie sich immer
+          wieder um die dünneren Äste schlängelte, damit alles gut hielt. Karl trug die schwersten und
+          dicksten Zweige mit seinem kräftigen Schwanz heran, weil er der Stärkste von allen war, und
+          watete dafür sogar mehrmals durch die aufgewühlten Pfützen am Fuß des Baumes. Rufus behielt
+          währenddessen alles im Blick, gab Anweisungen und passte genau auf, dass jedes Teil sicher
+          und fest befestigt wurde, bevor das nächste dazukam.</p>
+          <p>Nach einer ganzen Stunde harter Arbeit war das neue Nest endlich fertig — und es war sogar
+          stabiler und gemütlicher als das alte! Coco hüpfte vor Freude von einem Fuß auf den anderen
+          und war überglücklich: "Danke, dass ihr alle geholfen habt! Allein hätte ich das niemals so
+          schnell geschafft."</p>
+          <p>Rufus lächelte zufrieden und legte seine Pfote sanft auf Cocos Schulter. "Dafür sind
+          Freunde da. Gemeinsam schaffen wir alles — auch die größten Stürme können uns nichts
+          anhaben."</p>
         `,
         exerciseHtml: `
           <h4 style="font-family:var(--font-fun);">📋 Verständnisfragen</h4>
@@ -1033,20 +1150,40 @@ const LEO = {
         }
       },
       day5: {
-        parentNote: "Leseübung auf 2.-Klasse-Niveau, ca. 15 Minuten — die letzte Geschichte dieser Woche, mit allen Freunden zusammen.",
+        parentNote: "Die letzte Geschichte der Woche bringt noch einmal alle Freunde zusammen. Ein schöner Anlass, um mit deinem Kind zurückzublicken: Welche Geschichte hat am besten gefallen? So bleibt die ganze Woche noch etwas länger in Erinnerung.",
         theoryTitle: "Der Schatz der Dschungel-Insel",
         theoryHtml: `
           <p>Am letzten Tag der Woche versammelten sich alle Freunde am großen Wasserfall: Rufus der
-          Tiger, Momo der Affe, Kiara die Schlange, Karl das Krokodil und Coco der Papagei.</p>
-          <p>"Ich habe eine alte Schriftrolle gefunden", verkündete Coco aufgeregt. Darauf stand eine
-          Schatzkarte, die zu einer geheimen Höhle hinter dem Wasserfall führte.</p>
-          <p>Gemeinsam folgten sie der Karte. Rufus schob einen schweren Stein zur Seite, Karl half,
-          durch den Fluss zu schwimmen, Momo kletterte durch einen schmalen Spalt, und Kiara
-          schlängelte sich durch die letzte enge Stelle.</p>
-          <p>In der Höhle fanden sie keinen Goldschatz — sondern eine Wand voller funkelnder
-          Kristalle, die im Licht schimmerten wie Sterne. "Der wahre Schatz ist, dass wir das
-          gemeinsam entdeckt haben", sagte Rufus lächelnd. Alle waren sich einig: Das war der schönste
-          Schatz, den man sich vorstellen konnte.</p>
+          Tiger, Momo der Affe, Kiara die Schlange, Karl das Krokodil und Coco der Papagei. Die Sonne
+          schien golden durch die Blätter, und alle waren aufgeregt, denn Coco hatte eine Neuigkeit
+          angekündigt.</p>
+          <p>"Ich habe eine alte Schriftrolle gefunden", verkündete Coco aufgeregt und breitete sie
+          vor den anderen auf einem flachen Stein aus. Er hatte sie ganz zufällig zwischen zwei
+          Steinen versteckt entdeckt, als er nach einer neuen Futterstelle gesucht hatte. Darauf stand
+          eine Schatzkarte mit krummen Linien und einem großen roten Kreuz, die zu einer geheimen
+          Höhle hinter dem Wasserfall führte. "Wollen wir zusammen nachsehen, was sich dort
+          verbirgt?", fragte Coco aufgeregt, und alle nickten begeistert. Niemand von ihnen hatte
+          bisher gewusst, dass es hinter dem tosenden Wasserfall überhaupt eine Höhle gab.</p>
+          <p>Gemeinsam folgten sie der Karte durch den dichten Dschungel. Der Weg war nicht leicht,
+          und jeder musste mit seinen eigenen Stärken helfen: Rufus schob mit aller Kraft einen
+          schweren Stein zur Seite, der den Pfad versperrte. Karl half allen dabei, sicher durch den
+          reißenden Fluss zu schwimmen, indem er sie nacheinander auf seinem Rücken ans andere Ufer
+          trug. Momo kletterte flink durch einen schmalen Felsspalt, den kein anderes Tier erreichen
+          konnte, und Kiara schlängelte sich geschmeidig durch die allerletzte, besonders enge Stelle
+          direkt vor dem Eingang der Höhle.</p>
+          <p>Endlich standen alle gemeinsam vor dem Eingang, außer Atem, aber überglücklich, es
+          gemeinsam bis hierher geschafft zu haben. In der Höhle fanden sie keinen Goldschatz —
+          sondern eine ganze Wand voller funkelnder Kristalle, die im hereinfallenden Licht
+          schimmerten wie tausend kleine Sterne. Manche Kristalle leuchteten blau, andere violett
+          oder golden, je nachdem, wie das Licht des Wasserfalls durch die Öffnung fiel. Alle staunten
+          lange sprachlos über den wunderschönen Anblick, bevor Coco die Stille brach.</p>
+          <p>"Der wahre Schatz ist, dass wir das alles gemeinsam entdeckt haben", sagte Rufus lächelnd
+          und schaute in die Runde seiner Freunde. Momo nickte zustimmend und meinte, dass sie ohne
+          Karls Hilfe niemals über den Fluss gekommen wären, und Kiara fügte hinzu, dass jeder von
+          ihnen auf seine eigene Weise unersetzlich gewesen war. Alle waren sich einig: Das war der
+          schönste Schatz, den man sich vorstellen konnte — schöner als jedes Gold. Bevor sie sich auf
+          den Heimweg machten, versprachen sich die fünf Freunde, im nächsten Jahr wieder gemeinsam
+          hierher zurückzukehren.</p>
         `,
         exerciseHtml: `
           <h4 style="font-family:var(--font-fun);">📋 Verständnisfragen</h4>
@@ -1088,7 +1225,7 @@ const LEO = {
     label: "Englisch",
     days: {
       day1: {
-        parentNote: "Heutiges Englisch-Kapitel: <strong>„Hello! All about me“</strong> — mit Wortschatz, Rollenspiel, Lied, Suchbild und schriftlicher Übung ein vollwertiges Kapitel, passend zum Dschungel-Thema.",
+        parentNote: "Heute startet dein Kadett mit einem vollwertigen Englisch-Kapitel: Wortschatz, Rollenspiel, Lied und Suchbild, alles rund ums Dschungel-Thema. Singen, sprechen und schreiben zugleich – so bleiben neue Wörter am besten hängen. Ein rundum gelungener Einstieg.",
         theoryTitle: "Wortschatz & Satzmuster",
         theoryHtml: `
           <p><strong>Neue Wörter:</strong></p>
@@ -1152,7 +1289,7 @@ const LEO = {
         preview: "Morgen bauen wir auf 'I have' und 'I like' auf und lernen Farbwörter dazu."
       },
       day2: {
-        parentNote: "Heute geht es weiter mit <strong>Farbwörtern</strong> — aufbauend auf 'I have' und 'I like' von gestern.",
+        parentNote: "Weiter geht's mit Farbwörtern, aufbauend auf „I have“ und „I like“ von gestern. So wächst der Wortschatz Tag für Tag, während das Satzmuster von gestern einfach weiterverwendet wird. Ein kleiner, aber wirkungsvoller Schritt.",
         theoryTitle: "Colors",
         theoryHtml: `
           <p><strong>Neue Wörter:</strong></p>
@@ -1189,7 +1326,7 @@ const LEO = {
         preview: "Morgen lernen wir Zahlen und Familienwörter auf Englisch."
       },
       day3: {
-        parentNote: "Heutiges Thema: <strong>Zahlen 1-10 und Familienwörter</strong> — aufbauend auf den Farben von gestern.",
+        parentNote: "Heute kommen Zahlen von 1 bis 10 und Familienwörter dazu. Damit kann dein Kadett schon bald die eigene Familie auf Englisch vorstellen – ein Wortschatz, der sofort im echten Leben nützlich ist.",
         theoryTitle: "Numbers & Family",
         theoryHtml: `
           <p><strong>Neue Wörter:</strong></p>
@@ -1227,7 +1364,7 @@ const LEO = {
         preview: "Morgen üben wir Zahlen und Farben gemischt in kleinen Sätzen."
       },
       day4: {
-        parentNote: "Heute verbindet dein Kadett Zahlen und Farben aus den letzten Tagen zu kleinen, vollständigen Sätzen.",
+        parentNote: "Heute verbindet dein Kadett Zahlen und Farben zu kleinen, vollständigen Sätzen. Aus einzelnen Wörtern werden plötzlich echte Aussagen – ein Moment, in dem viele Kinder das erste Mal merken: Ich kann schon richtig Englisch sprechen!",
         theoryTitle: "Numbers & Colors together",
         theoryHtml: `
           <p>Wir verbinden, was wir schon können:</p>
@@ -1248,13 +1385,13 @@ const LEO = {
         },
         puzzle: {
           title: "🔍 Suchbild: Verbinde die Sätze mit dem passenden Bild",
-          pairs: [["three green frogs","🐸🐸🐸"],["two yellow snakes","🐍🐍"],["one brown monkey","🐒"],["four red birds","🐦🐦🐦🐦"]],
-          solution: "three green frogs🐸🐸🐸 · two yellow snakes🐍🐍 · one brown monkey🐒 · four red birds🐦🐦🐦🐦"
+          pairs: [["three green frogs","🐸🐸🐸"],["two yellow snakes","🐍🐍"],["one brown monkey","🐒"],["four blue birds","🐦🐦🐦🐦"]],
+          solution: "three green frogs🐸🐸🐸 · two yellow snakes🐍🐍 · one brown monkey🐒 · four blue birds🐦🐦🐦🐦"
         },
         preview: "Morgen gibt es die große Endboss-Challenge — auch auf Englisch wird es spannend!"
       },
       day5: {
-        parentNote: "🎉 Freitag: Alles aus dieser Woche gemischt — Farben, Zahlen, Familie in einem großen Abschluss-Song.",
+        parentNote: "Freitag heißt: alles aus der Woche in einem fröhlichen Abschluss-Song. Ein Lied bleibt oft noch tagelang im Ohr – der perfekte Weg, die Woche mit einem Lächeln zu beenden.",
         theoryTitle: "Week 1 Review",
         theoryHtml: `
           <p>Diese Woche hat dein Kadett gelernt: hello & my name is, Farben, Zahlen 1-10, Familienwörter.
@@ -1282,18 +1419,21 @@ const LEO = {
     label: "Sachunterricht",
     days: {
       day1: {
-        parentNote: "Heute führen wir die <strong>Steckbrief-Struktur</strong> ein, die ab jetzt bei jedem neuen Tier wiederkehrt.",
+        parentNote: "Heute lernt dein Kadett den Steckbrief kennen – eine feste Struktur, die ab jetzt bei jedem neuen Tier wiederkehrt. Dieses Muster hilft, Wissen zu ordnen, und wird ihm noch oft in der Schule begegnen. Ein kluger Start in eine ganze Tierreihe.",
         theoryTitle: "Der Tier-Steckbrief: Der Tiger",
         theoryHtml: `
           <p>Ein Steckbrief beschreibt ein Tier immer nach demselben Muster — das macht es leicht,
           Tiere zu vergleichen:</p>
-          <table class="milestone-table">
+          <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="font-size:64px;flex-shrink:0;">🐯</div>
+          <table class="milestone-table" style="flex:1;min-width:260px;">
             <tr><th>Lebensraum</th><td>Dschungel und Wälder in Asien</td></tr>
             <tr><th>Nahrung</th><td>Fleischfresser (Raubtier): jagt Hirsche und Wildschweine</td></tr>
             <tr><th>Wildtier oder Haustier</th><td>Wildtier</td></tr>
             <tr><th>Besonderheit</th><td>Jeder Tiger hat ein einzigartiges Streifenmuster — wie ein Fingerabdruck</td></tr>
             <tr><th>Fortpflanzung</th><td>2–4 Jungtiere, blind geboren, bleiben ca. 2 Jahre bei der Mutter</td></tr>
           </table>
+          </div>
         `,
         exerciseTitle: "✏️ Praxis: Erstelle den Steckbrief für den Elefanten",
         exerciseHtml: `
@@ -1301,13 +1441,16 @@ const LEO = {
           <p><em>Wortspeicher: Savannen und Wälder in Afrika und Asien · Pflanzenfresser: frisst Gräser,
           Blätter und Früchte · Wildtier · Größtes Landtier der Welt, greift mit dem Rüssel · Babys
           wiegen schon ca. 100 kg und bleiben viele Jahre bei der Mutter</em></p>
-          <table class="milestone-table">
-            <tr><th>Lebensraum</th><td>____________________</td></tr>
-            <tr><th>Nahrung</th><td>____________________</td></tr>
-            <tr><th>Wildtier oder Haustier</th><td>____________________</td></tr>
-            <tr><th>Besonderheit</th><td>____________________</td></tr>
-            <tr><th>Fortpflanzung</th><td>____________________</td></tr>
+          <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="font-size:64px;flex-shrink:0;">🐘</div>
+          <table class="milestone-table" style="flex:1;min-width:260px;">
+            <tr><th>Lebensraum</th><td>________________________________________</td></tr>
+            <tr><th>Nahrung</th><td>________________________________________</td></tr>
+            <tr><th>Wildtier oder Haustier</th><td>________________________________________</td></tr>
+            <tr><th>Besonderheit</th><td>________________________________________</td></tr>
+            <tr><th>Fortpflanzung</th><td>________________________________________</td></tr>
           </table>
+          </div>
         `,
         solutionHtml: `
           <table class="milestone-table">
@@ -1321,16 +1464,19 @@ const LEO = {
         preview: "Morgen lernen wir ein weiteres Dschungeltier kennen und füllen den Steckbrief diesmal ganz allein aus."
       },
       day2: {
-        parentNote: "Heute lernen wir ein zweites Dschungeltier kennen — dein Kadett füllt den Steckbrief diesmal möglichst allein aus.",
+        parentNote: "Ein zweites Dschungeltier – und heute darf dein Kadett den Steckbrief schon ganz allein ausfüllen. Das ist ein schöner Moment, um zu sehen, wie sicher die Struktur von gestern schon sitzt.",
         theoryTitle: "Der Tier-Steckbrief: Der Affe",
         theoryHtml: `
-          <table class="milestone-table">
+          <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="font-size:64px;flex-shrink:0;">🐵</div>
+          <table class="milestone-table" style="flex:1;min-width:260px;">
             <tr><th>Lebensraum</th><td>Regenwälder und Dschungel weltweit</td></tr>
             <tr><th>Nahrung</th><td>Allesfresser: Früchte, Blätter, manchmal auch Insekten</td></tr>
             <tr><th>Wildtier oder Haustier</th><td>Wildtier</td></tr>
             <tr><th>Besonderheit</th><td>Kann mit Händen und Füßen gleichzeitig greifen — ein sehr geschickter Kletterer</td></tr>
             <tr><th>Fortpflanzung</th><td>Meist ein Junges, das sich lange am Bauch der Mutter festhält</td></tr>
           </table>
+          </div>
         `,
         exerciseTitle: "✏️ Praxis: Erstelle den Steckbrief für die Schlange",
         exerciseHtml: `
@@ -1338,13 +1484,16 @@ const LEO = {
           <p><em>Wortspeicher: Wälder, Wüsten und Wiesen weltweit · Fleischfresser: verschluckt kleine
           Tiere im Ganzen · Wildtier · Hat keine Beine, bewegt sich wellenförmig, manche Arten sind giftig ·
           Die meisten Arten legen Eier</em></p>
-          <table class="milestone-table">
-            <tr><th>Lebensraum</th><td>____________________</td></tr>
-            <tr><th>Nahrung</th><td>____________________</td></tr>
-            <tr><th>Wildtier oder Haustier</th><td>____________________</td></tr>
-            <tr><th>Besonderheit</th><td>____________________</td></tr>
-            <tr><th>Fortpflanzung</th><td>____________________</td></tr>
+          <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="font-size:64px;flex-shrink:0;">🐍</div>
+          <table class="milestone-table" style="flex:1;min-width:260px;">
+            <tr><th>Lebensraum</th><td>________________________________________</td></tr>
+            <tr><th>Nahrung</th><td>________________________________________</td></tr>
+            <tr><th>Wildtier oder Haustier</th><td>________________________________________</td></tr>
+            <tr><th>Besonderheit</th><td>________________________________________</td></tr>
+            <tr><th>Fortpflanzung</th><td>________________________________________</td></tr>
           </table>
+          </div>
         `,
         solutionHtml: `
           <table class="milestone-table">
@@ -1358,16 +1507,19 @@ const LEO = {
         preview: "Morgen geht es mit einem neuen Dschungelbewohner weiter."
       },
       day3: {
-        parentNote: "Ein drittes Dschungeltier — dein Kadett füllt den Steckbrief jetzt schon recht selbstständig aus.",
+        parentNote: "Das dritte Tier dieser Woche – und dein Kadett füllt den Steckbrief schon richtig selbstständig aus. Mit jedem Tier wächst nicht nur das Wissen, sondern auch das Selbstvertrauen.",
         theoryTitle: "Der Tier-Steckbrief: Das Krokodil",
         theoryHtml: `
-          <table class="milestone-table">
+          <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="font-size:64px;flex-shrink:0;">🐊</div>
+          <table class="milestone-table" style="flex:1;min-width:260px;">
             <tr><th>Lebensraum</th><td>Flüsse und Seen in tropischen Regionen</td></tr>
             <tr><th>Nahrung</th><td>Fleischfresser: lauert im Wasser auf Beute</td></tr>
             <tr><th>Wildtier oder Haustier</th><td>Wildtier</td></tr>
             <tr><th>Besonderheit</th><td>Kann bis zu einer Stunde die Luft anhalten und unter Wasser bleiben</td></tr>
             <tr><th>Fortpflanzung</th><td>Legt Eier in einem Nest aus Pflanzen am Ufer</td></tr>
           </table>
+          </div>
         `,
         exerciseTitle: "✏️ Praxis: Erstelle den Steckbrief für den Papagei",
         exerciseHtml: `
@@ -1375,13 +1527,16 @@ const LEO = {
           <p><em>Wortspeicher: Tropische Regenwälder weltweit · Frisst Früchte, Samen und Nüsse ·
           Wildtier (manche Arten auch als Haustier gehalten) · Kann Wörter und Geräusche nachahmen ·
           Legt Eier in Baumhöhlen</em></p>
-          <table class="milestone-table">
-            <tr><th>Lebensraum</th><td>____________________</td></tr>
-            <tr><th>Nahrung</th><td>____________________</td></tr>
-            <tr><th>Wildtier oder Haustier</th><td>____________________</td></tr>
-            <tr><th>Besonderheit</th><td>____________________</td></tr>
-            <tr><th>Fortpflanzung</th><td>____________________</td></tr>
+          <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="font-size:64px;flex-shrink:0;">🦜</div>
+          <table class="milestone-table" style="flex:1;min-width:260px;">
+            <tr><th>Lebensraum</th><td>________________________________________</td></tr>
+            <tr><th>Nahrung</th><td>________________________________________</td></tr>
+            <tr><th>Wildtier oder Haustier</th><td>________________________________________</td></tr>
+            <tr><th>Besonderheit</th><td>________________________________________</td></tr>
+            <tr><th>Fortpflanzung</th><td>________________________________________</td></tr>
           </table>
+          </div>
         `,
         solutionHtml: `
           <table class="milestone-table">
@@ -1395,16 +1550,19 @@ const LEO = {
         preview: "Morgen lernen wir ein besonders gemütliches Dschungeltier kennen."
       },
       day4: {
-        parentNote: "Ein viertes Dschungeltier — ganz anders als die bisherigen: langsam statt schnell.",
+        parentNote: "Heute wird's gemütlich: Das Faultier zeigt, dass nicht jedes Tier schnell sein muss, um erfolgreich zu sein. Ein schöner Kontrast zu den flinken Tieren der letzten Tage.",
         theoryTitle: "Der Tier-Steckbrief: Das Faultier",
         theoryHtml: `
-          <table class="milestone-table">
+          <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="font-size:64px;flex-shrink:0;">🦥</div>
+          <table class="milestone-table" style="flex:1;min-width:260px;">
             <tr><th>Lebensraum</th><td>Regenwälder in Mittel- und Südamerika</td></tr>
             <tr><th>Nahrung</th><td>Pflanzenfresser: frisst hauptsächlich Blätter</td></tr>
             <tr><th>Wildtier oder Haustier</th><td>Wildtier</td></tr>
             <tr><th>Besonderheit</th><td>Bewegt sich extrem langsam und hängt die meiste Zeit kopfüber in Bäumen</td></tr>
             <tr><th>Fortpflanzung</th><td>Meist ein Junges, das sich am Bauch der Mutter festhält</td></tr>
           </table>
+          </div>
         `,
         exerciseTitle: "✏️ Praxis: Erstelle den Steckbrief für den Leoparden",
         exerciseHtml: `
@@ -1412,13 +1570,16 @@ const LEO = {
           <p><em>Wortspeicher: Savannen und Wälder in Afrika und Asien · Fleischfresser: jagt vor allem
           nachts · Wildtier · Kann sein Fleisch-Beute auf Bäume tragen, um sie vor anderen Räubern zu
           schützen · 2–3 Junge, die gut versteckt aufwachsen</em></p>
-          <table class="milestone-table">
-            <tr><th>Lebensraum</th><td>____________________</td></tr>
-            <tr><th>Nahrung</th><td>____________________</td></tr>
-            <tr><th>Wildtier oder Haustier</th><td>____________________</td></tr>
-            <tr><th>Besonderheit</th><td>____________________</td></tr>
-            <tr><th>Fortpflanzung</th><td>____________________</td></tr>
+          <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="font-size:64px;flex-shrink:0;">🐆</div>
+          <table class="milestone-table" style="flex:1;min-width:260px;">
+            <tr><th>Lebensraum</th><td>________________________________________</td></tr>
+            <tr><th>Nahrung</th><td>________________________________________</td></tr>
+            <tr><th>Wildtier oder Haustier</th><td>________________________________________</td></tr>
+            <tr><th>Besonderheit</th><td>________________________________________</td></tr>
+            <tr><th>Fortpflanzung</th><td>________________________________________</td></tr>
           </table>
+          </div>
         `,
         solutionHtml: `
           <table class="milestone-table">
@@ -1432,7 +1593,7 @@ const LEO = {
         preview: "Morgen ist die große Wiederholung aller sechs Dschungeltiere beim Endboss-Freitag!"
       },
       day5: {
-        parentNote: "🎉 Freitag: Ein 'Wer bin ich?'-Rätsel-Quiz über alle Tiere dieser Woche — ganz ohne neuen Steckbrief, nur zur Wiederholung.",
+        parentNote: "Freitag heißt: ein spannendes „Wer bin ich?“-Rätsel über alle Tiere der Woche. So merkt dein Kadett oft selbst gar nicht, wie viel er diese Woche schon gelernt hat – das Quiz macht's sichtbar.",
         theoryTitle: "Wer bin ich? Das große Dschungeltier-Quiz",
         theoryHtml: `
           <p>Diese Woche hat dein Kadett acht Dschungeltiere kennengelernt: Tiger, Elefant, Affe, Schlange,
@@ -1464,7 +1625,7 @@ const LEO = {
     label: "Bewegung",
     days: {
       day1: {
-        parentNote: "Bewegung passend zum Dschungel-Thema — gerne auch zusammen mit dem Forscherkind.",
+        parentNote: "Nach dem Lernen darf heute richtig getobt werden – Bewegung passend zum Dschungel-Thema. Kleine Pausen wie diese tun gut und machen den Kopf frei für die nächste Aufgabe.",
         theoryTitle: "Der Dschungel-Parcours",
         theoryHtml: `
           <p>Baut mit Kissen, Stühlen und einer Decke einen kleinen Parcours im Zimmer oder Garten auf:</p>
@@ -1479,7 +1640,7 @@ const LEO = {
         preview: "Morgen gibt es eine neue Bewegungsaufgabe passend zum Tagesthema."
       },
       day2: {
-        parentNote: "Ein neues Bewegungsspiel — heute wird gerannt statt geschlichen.",
+        parentNote: "Heute wird gerannt und getobt – ein actionreicher Gegenpol zum ruhigen Tag von gestern. Genau dieser Wechsel macht Bewegung so richtig spannend.",
         theoryTitle: "Das Dschungel-Tier-Wettrennen",
         theoryHtml: `
           <p>Markiert eine Start- und eine Ziellinie (z. B. mit Klebeband oder zwei Kissen). Jede Runde
@@ -1497,7 +1658,7 @@ const LEO = {
         preview: "Morgen gibt es wieder eine neue Bewegungsidee."
       },
       day3: {
-        parentNote: "Ein ruhigerer Bewegungstag nach zwei energiegeladenen Tagen.",
+        parentNote: "Ein ruhigerer Tag nach zwei energiegeladenen Runden: Dschungel-Yoga sorgt für Entspannung. Auch Ruhe darf mal geübt werden.",
         theoryTitle: "Dschungel-Yoga",
         theoryHtml: `
           <p>Haltet jede Position ruhig für ein paar Atemzüge:</p>
@@ -1517,7 +1678,7 @@ const LEO = {
         preview: "Morgen wird es wieder actionreicher."
       },
       day4: {
-        parentNote: "Ein Versteckspiel mit Dschungel-Dreh — heute darf laut gelacht werden.",
+        parentNote: "Ein Versteckspiel mit Dschungel-Dreh – heute darf viel gelacht werden. Gemeinsames Lachen gehört einfach zu einer schönen Ferienwoche dazu.",
         theoryTitle: "Dschungel-Verstecken",
         theoryHtml: `
           <p>Ganz normales Verstecken, mit einem Extra:</p>
@@ -1532,7 +1693,7 @@ const LEO = {
         preview: "Morgen ist Endboss-Freitag — mit einer besonders lustigen Bewegungsaufgabe zum Abschluss der Woche!"
       },
       day5: {
-        parentNote: "🎉 Freitag: Die große Dschungel-Olympiade — alle Bewegungsspiele der Woche in einem großen Finale.",
+        parentNote: "Freitag heißt: die große Dschungel-Olympiade mit allen Lieblingsspielen der Woche. Ein motivierender Abschluss für einen richtig fitten Kadetten.",
         theoryTitle: "Die Dschungel-Olympiade",
         theoryHtml: `
           <p>Baut einen kleinen Rundkurs mit allen Stationen der Woche auf und lasst die Kinder ihn
@@ -1563,7 +1724,7 @@ const LILI = {
     label: "Geschichte",
     days: {
       day1: {
-        guide: "Lies dem Forscherkind die Geschichte gemütlich vor, am besten im neuen 'Dschungel-Lager'. Zeig beim Vorlesen gerne mit der Stimme, wie mutig Tilly am Ende ist.",
+        guide: "Lies deinem Forscherkind heute die Geschichte gemütlich vor, am besten im neuen „Dschungel-Lager“. Betone beim Vorlesen, wie mutig Tilly am Ende ist. Solche gemeinsamen Vorlesemomente bleiben oft ein Leben lang in Erinnerung.",
         activityHtml: `
           <div class="card">
             <h3>📖 Tilly entdeckt die Dschungel-Insel</h3>
@@ -1587,7 +1748,7 @@ const LILI = {
         `
       },
       day2: {
-        guide: "Zweiter Teil der Geschichte — heute geht es um Teamarbeit. Betone beim Vorlesen, wie Tilly und Momo gemeinsam eine Lösung finden.",
+        guide: "Heute geht es um Teamarbeit: Tilly und Momo finden gemeinsam eine Lösung. Betone das beim Vorlesen ruhig extra – es ist eine schöne kleine Botschaft fürs Leben.",
         activityHtml: `
           <div class="card">
             <h3>📖 Der Wasserfall der geteilten Früchte</h3>
@@ -1609,7 +1770,7 @@ const LILI = {
         `
       },
       day3: {
-        guide: "Dritter Teil der Geschichte — heute kommt ein neuer Freund dazu. Betone beim Vorlesen, wie freundlich Tilly und Momo dem ängstlichen Coco begegnen.",
+        guide: "Ein neuer Freund kommt dazu: der ängstliche Coco. Zeig beim Vorlesen, wie freundlich Tilly und Momo ihm begegnen – Kinder lernen von solchen Vorbildern oft mehr als von jeder Ermahnung.",
         activityHtml: `
           <div class="card">
             <h3>📖 Ein neuer Freund: Coco der Papagei</h3>
@@ -1631,7 +1792,7 @@ const LILI = {
         `
       },
       day4: {
-        guide: "Ein Gewitter kann kleinen Kindern Angst machen — lies diesen Teil besonders liebevoll und beruhigend vor.",
+        guide: "Ein Gewitter kann kleinen Kindern Angst machen – lies diesen Teil besonders liebevoll und beruhigend vor. So meistert dein Forscherkind die Geschichte gemeinsam mit Tilly und ihren Freunden.",
         activityHtml: `
           <div class="card">
             <h3>📖 Der kleine Sturm</h3>
@@ -1651,7 +1812,7 @@ const LILI = {
         `
       },
       day5: {
-        guide: "Die letzte Geschichte der Woche — ein fröhlicher Abschluss mit allen Freunden zusammen. Ein schöner Moment, um gemeinsam zurückzublicken.",
+        guide: "Die letzte Geschichte bringt alle Freunde noch einmal zusammen – ein fröhlicher Abschluss. Frag dein Forscherkind danach, welcher Moment der Woche am schönsten war.",
         activityHtml: `
           <div class="card">
             <h3>📖 Das große Dschungel-Fest</h3>
@@ -1679,7 +1840,7 @@ const LILI = {
     label: "Sprache",
     days: {
       day1: {
-        guide: "Klatscht die Silben der Tierwörter gemeinsam laut mit. Übertreibt ruhig ein bisschen — je lauter geklatscht wird, desto mehr Spaß macht es.",
+        guide: "Klatscht heute gemeinsam die Silben der Tierwörter – laut und mit viel Übertreibung. Genau dieses Spiel schärft ganz nebenbei das Ohr für Sprache.",
         activityHtml: `
           <div class="card">
             <h3>👏 Silben klatschen: Dschungeltiere</h3>
@@ -1697,7 +1858,7 @@ const LILI = {
         `
       },
       day2: {
-        guide: "Reime machen Spaß und schulen das Ohr für Sprache — sprecht die Reimpaare gemeinsam nach.",
+        guide: "Reime machen heute Spaß und schulen das Ohr für Sprache. Sprecht die Reimpaare gemeinsam nach – ein kleines Spiel mit großer Wirkung.",
         activityHtml: `
           <div class="card">
             <h3>🎵 Reime finden: Dschungel-Reime</h3>
@@ -1713,7 +1874,7 @@ const LILI = {
         `
       },
       day3: {
-        guide: "Ein einfaches Sortierspiel — das Forscherkind lernt, Dinge nach Kategorien (Oberbegriffen) zu ordnen.",
+        guide: "Ein Sortierspiel: Dein Forscherkind lernt, Dinge nach Kategorien zu ordnen. So einfach das klingt – es ist ein wichtiger Baustein, um die Welt zu verstehen.",
         activityHtml: `
           <div class="card">
             <h3>🗂️ Was gehört zusammen?</h3>
@@ -1729,7 +1890,7 @@ const LILI = {
         `
       },
       day4: {
-        guide: "Gegensätze mit Körperbewegung verbinden — das bleibt besonders gut im Gedächtnis.",
+        guide: "Gegensätze werden heute mit Bewegung verbunden – das bleibt besonders gut im Kopf. Je mehr Körpereinsatz, desto mehr Spaß und desto mehr bleibt hängen.",
         activityHtml: `
           <div class="card">
             <h3>🔄 Gegensätze spielen</h3>
@@ -1744,7 +1905,7 @@ const LILI = {
         `
       },
       day5: {
-        guide: "Ein fröhliches Abschlussspiel, das alles aus der Woche noch einmal aufgreift.",
+        guide: "Freitag heißt: ein fröhliches Abschlussspiel, das alles aus der Woche noch einmal aufgreift. Du wirst überrascht sein, wie viel Sprachgefühl dein Forscherkind diese Woche schon aufgebaut hat.",
         activityHtml: `
           <div class="card">
             <h3>🎉 Das große Dschungel-Ratespiel</h3>
@@ -1764,7 +1925,7 @@ const LILI = {
     label: "Mathe",
     days: {
       day1: {
-        guide: "Kein Abzählen nötig — die Mengen sollen einfach als Bild im Kopf entstehen. Lies die Geschichte langsam vor und zeig dabei auf die Matten.",
+        guide: "Heute entdeckt dein Forscherkind kleine Mengen einfach als Bild im Kopf. Zeig beim Vorlesen auf die Matten und lass die Menge auf dein Kind wirken. So entsteht ganz nebenbei ein erstes Gefühl für Zahlen.",
         activityHtml: `
           <div class="card">
             <h3>🐒 Die Affen und ihre Matten</h3>
@@ -1790,7 +1951,7 @@ const LILI = {
         `
       },
       day2: {
-        guide: "Wieder ganz ohne Abzählen — heute wächst die Affengruppe bis auf fünf.",
+        guide: "Die Affengruppe wächst heute bis auf fünf, Stück für Stück als Bild im Kopf. Dein Forscherkind übt, auch etwas größere Mengen auf einen Blick zu erfassen. Ein kleiner, aber wichtiger Schritt.",
         activityHtml: `
           <div class="card">
             <h3>🐒 Noch mehr Affen kommen dazu</h3>
@@ -1830,7 +1991,7 @@ const LILI = {
         `
       },
       day3: {
-        guide: "Ein einfaches Muster-Spiel — fördert das Erkennen von Regelmäßigkeiten, ganz spielerisch.",
+        guide: "Heute geht es um Muster erkennen und fortsetzen – ganz spielerisch mit Farben und Formen. Wer Muster versteht, tut sich später mit Zahlenfolgen viel leichter. Lass dein Kind ruhig auch eigene Muster erfinden.",
         activityHtml: `
           <div class="card">
             <h3>🔴🔵 Muster fortsetzen</h3>
@@ -1844,7 +2005,7 @@ const LILI = {
         `
       },
       day4: {
-        guide: "Formen im Alltag entdecken — einfach beim Spazierengehen oder Zuhause umschauen.",
+        guide: "Formen im Alltag entdecken – beim Spazierengehen oder Zuhause umschauen. Kreis, Dreieck und Viereck überall wiederzufinden, macht Formen greifbar, lange bevor die Fachbegriffe wichtig werden.",
         activityHtml: `
           <div class="card">
             <h3>🔵🔺 Formen entdecken</h3>
@@ -1857,15 +2018,49 @@ const LILI = {
         `
       },
       day5: {
-        guide: "Eine spielerische Zählschatzsuche zum Abschluss der Woche.",
+        guide: "Heute trainiert dein Kind eine besondere Fähigkeit: kleine Mengen auf einen Blick zu erkennen, ganz wie ein kleiner Rechenprofi. So entsteht Schritt für Schritt ein echtes Gefühl für Zahlen, das dein Kind später beim Rechnen enorm hilft. Eine clevere kleine Übung mit großer Wirkung.",
         activityHtml: `
           <div class="card">
-            <h3>💎 Die Schatzsuche zum Zählen</h3>
-            <p>Versteckt 10 kleine Gegenstände (Knöpfe, Steine, Perlen) im Zimmer. Das Forscherkind sucht sie und
-            zählt laut mit, wie viele sie schon gefunden hat.</p>
-            <p>Am Ende: Legt alle gefundenen Schätze in eine Reihe und zählt gemeinsam noch einmal von
-            vorne — wie viele waren es insgesamt?</p>
-            <p style="font-size:13.5px;color:#6b7280;">Variante: Zwei Schatzhaufen bilden und vergleichen, wo mehr liegt.</p>
+            <h3>💎 Die große Schatzsuche</h3>
+            <p><strong>Tief im Dschungel wartet ein Schatz!</strong> Versteckt 5 kleine Schätze (Knöpfe, Steine
+            oder Perlen) im Zimmer, bevor ihr startet. Das Forscherkind sucht — und jeder gefundene Schatz
+            kommt auf ein Schatztuch oder einen Teller.</p>
+            <p><strong>Der erste Schatz ist gefunden!</strong></p>
+            <div style="display:flex;gap:12px;margin:14px 0;">
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+          </div>
+            <p><strong>Ein zweiter Schatz kommt dazu.</strong></p>
+            <div style="display:flex;gap:12px;margin:14px 0;">
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+          </div>
+            <p><strong>Und ein dritter!</strong></p>
+            <div style="display:flex;gap:12px;margin:14px 0;">
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+          </div>
+            <p><strong>Ein vierter Schatz taucht auf!</strong></p>
+            <div style="display:flex;gap:12px;margin:14px 0;">
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+          </div>
+            <p><strong>Und zum Schluss der fünfte Schatz</strong> — die ganze Schatzkiste ist komplett!</p>
+            <div style="display:flex;gap:12px;margin:14px 0;">
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+            <div style="background:#fde68a;border-radius:10px;width:56px;height:44px;display:flex;align-items:center;justify-content:center;font-size:26px;">💎</div>
+          </div>
+            <p style="font-size:13.5px;color:#6b7280;">Bitte nicht zählen — einfach freuen, wenn ein neuer Schatz
+            dazukommt, und am Ende alle fünf gemeinsam anschauen.</p>
+            <p><strong>Und jetzt das Schatzspiel:</strong> "Zeig mir mal 3 von deinen Schätzen!" Das Forscherkind
+            schiebt auf einen Blick drei Schätze beiseite, ohne zu zählen. Dann fragt ihr: "Und wie viele hast
+            du da noch übrig?" — das Forscherkind schaut auf den kleinen Rest und erfasst die Menge direkt,
+            ganz ohne nachzuzählen.</p>
           </div>
         `
       }
@@ -1877,7 +2072,7 @@ const LILI = {
     label: "Englisch",
     days: {
       day1: {
-        guide: "Nur singen und zeigen, keine Vokabeltests. Zeig beim Singen jeweils auf das passende Tier.",
+        guide: "Heute wird gesungen und gezeigt – ganz entspannt und spielerisch. Zeig beim Singen auf das passende Tier, das macht die neuen Wörter lebendig. Genau so bleiben erste englische Wörter am längsten hängen.",
         activityHtml: `
           <div class="card">
             <h3>🎵 Farben-Lied: What color is it?</h3>
@@ -1892,7 +2087,7 @@ const LILI = {
         `
       },
       day2: {
-        guide: "Zählen auf Englisch, mit Bewegung verbunden — je mehr Körpereinsatz, desto mehr Spaß.",
+        guide: "Englische Zahlwörter, heute mit viel Bewegung verbunden. Je mehr Körpereinsatz, desto mehr Spaß – und desto besser bleiben die Wörter im Kopf.",
         activityHtml: `
           <div class="card">
             <h3>🎵 Zähl-Lied: One, two, three!</h3>
@@ -1906,7 +2101,7 @@ const LILI = {
         `
       },
       day3: {
-        guide: "Ein einfaches Ja/Nein-Ratespiel, das Farben und Größen von gestern und vorgestern verbindet.",
+        guide: "Ein Ja/Nein-Ratespiel verbindet heute Farben und Größen der letzten Tage. Genau diese Wiederholung sorgt dafür, dass der Wortschatz wirklich hängen bleibt.",
         activityHtml: `
           <div class="card">
             <h3>❓ Yes or No? Ratespiel</h3>
@@ -1919,7 +2114,7 @@ const LILI = {
         `
       },
       day4: {
-        guide: "Big and small auf Englisch, mit Bewegung verbunden.",
+        guide: "Big and small auf Englisch, wieder mit Bewegung verbunden. So ein einfaches Gegensatzpaar bleibt am besten im Gedächtnis, wenn der ganze Körper mitmacht.",
         activityHtml: `
           <div class="card">
             <h3>🐘🐜 Big and small</h3>
@@ -1931,7 +2126,7 @@ const LILI = {
         `
       },
       day5: {
-        guide: "Ein fröhliches Abschluss-Lied, das Farben, Zahlen und Größen der Woche verbindet.",
+        guide: "Freitag heißt: ein fröhliches Abschluss-Lied mit Farben, Zahlen und Größen der Woche. Vielleicht summt dein Forscherkind es noch tagelang vor sich hin.",
         activityHtml: `
           <div class="card">
             <h3>🎵 Abschluss-Lied: My Jungle Friends</h3>
@@ -1952,7 +2147,7 @@ const LILI = {
     label: "Kreativ & Ausmalen",
     days: {
       day1: {
-        guide: "Zuerst das Ausmalbild anbieten, danach — wenn noch Zeit und Lust ist — eine der Bastelideen.",
+        guide: "Erst das Ausmalbild, dann – wenn noch Lust ist – eine Bastelidee. Hier zählt einzig die Freude am eigenen Werk. Jedes Ergebnis ist genau richtig, so wie dein Kind es gestaltet.",
         activityHtml: `
           <div class="card">
             <h3>🎨 Ausmalbild: Tilly die Schildkröte</h3>
@@ -1985,7 +2180,7 @@ const LILI = {
         `
       },
       day2: {
-        guide: "Wieder zuerst das Ausmalbild, dann die Bastelidee — heute dreht sich alles um Momo.",
+        guide: "Wieder erst Malen, dann Basteln – heute dreht sich alles um Momo. Diese kleine feste Struktur gibt deinem Forscherkind Sicherheit und Vorfreude.",
         activityHtml: `
           <div class="card">
             <h3>🎨 Ausmalbild: Momo der Affe</h3>
@@ -2012,7 +2207,7 @@ const LILI = {
         `
       },
       day3: {
-        guide: "Heute dreht sich alles um den neuen Freund Coco den Papagei.",
+        guide: "Heute steht der bunte Papagei Coco im Mittelpunkt. Lass dein Forscherkind ruhig eigene Farben wählen, auch wenn sie in der Natur anders aussehen.",
         activityHtml: `
           <div class="card">
             <h3>🎨 Ausmalbild: Coco der Papagei</h3>
@@ -2038,7 +2233,7 @@ const LILI = {
         `
       },
       day4: {
-        guide: "Heute geht es um Karl das Krokodil und um das gemütliche Faultier aus dem heutigen Sachunterricht.",
+        guide: "Heute wird gleich doppelt gebastelt: Krokodil Karl und das gemütliche Faultier. Zwei Techniken an einem Tag halten die Motivation richtig hoch.",
         activityHtml: `
           <div class="card">
             <h3>🎨 Ausmalbild: Karl das Krokodil</h3>
@@ -2067,7 +2262,7 @@ const LILI = {
         `
       },
       day5: {
-        guide: "Ein festliches Bastelprojekt für die Dschungel-Fest-Feier am Ende der Woche.",
+        guide: "Ein festliches Bastelprojekt für die große Abschlussfeier am Ende der Woche. Darauf darf dein Forscherkind zu Recht stolz sein.",
         activityHtml: `
           <div class="card">
             <h3>🎉 Ausmalbild: Regenbogen über der Dschungel-Insel</h3>
@@ -2096,7 +2291,7 @@ const LILI = {
     label: "Naturwissen",
     days: {
       day1: {
-        guide: "Ein einfaches, sicheres Experiment — am besten morgens starten, damit man abends das Ergebnis sehen kann.",
+        guide: "Heute wird morgens ein kleines Experiment gestartet, das abends sein Geheimnis verrät: Wie trinkt eine Blume eigentlich? Die Vorfreude auf das Ergebnis ist oft das Schönste am ganzen Tag.",
         activityHtml: `
           <div class="card">
             <h3>🧪 Wie trinkt eine Blume?</h3>
@@ -2115,7 +2310,7 @@ const LILI = {
         `
       },
       day2: {
-        guide: "Ein einfaches Experiment mit Alltagsgegenständen — lasst das Forscherkind vorher raten, bevor ihr es ausprobiert.",
+        guide: "Schwimmt es oder sinkt es? Lasst euer Forscherkind vorher raten, bevor ihr es gemeinsam ausprobiert. Genau dieses Raten macht aus einem einfachen Versuch ein kleines Abenteuer.",
         activityHtml: `
           <div class="card">
             <h3>🧪 Schwimmt es oder sinkt es?</h3>
@@ -2133,7 +2328,7 @@ const LILI = {
         `
       },
       day3: {
-        guide: "Ein kleines Zauber-Experiment, das sofort Freude macht — ein Erwachsener sollte das Mineralwasseröffnen übernehmen.",
+        guide: "Ein kleines Zauber-Experiment, das garantiert für strahlende Augen sorgt: tanzende Rosinen im Glas. Das Öffnen des Mineralwassers übernimmst du am besten selbst.",
         activityHtml: `
           <div class="card">
             <h3>🧪 Die tanzenden Rosinen</h3>
@@ -2151,7 +2346,7 @@ const LILI = {
         `
       },
       day4: {
-        guide: "Ein zauberhaftes Experiment passend zur Sturm-Geschichte von heute — Kinder lieben den Moment, in dem die Farbe 'heraustropft'.",
+        guide: "Passend zur Sturm-Geschichte von heute entsteht im Glas ein eigenes kleines Gewitter. Der Moment, in dem die Farbe herabtropft, sorgt garantiert für ein Staunen.",
         activityHtml: `
           <div class="card">
             <h3>🧪 Wolken im Glas (Regen-Experiment)</h3>
@@ -2169,7 +2364,7 @@ const LILI = {
         `
       },
       day5: {
-        guide: "Das magischste Experiment der Woche zum großen Fest-Abschluss — Kinder lieben diesen Moment.",
+        guide: "Zum großen Fest-Abschluss wartet das magischste Experiment der Woche: der Milch-Farben-Tanz. Ein wirklich schöner Schlusspunkt für eine ganze Woche voller kleiner Entdeckungen.",
         activityHtml: `
           <div class="card">
             <h3>🧪 Der Milch-Farben-Tanz</h3>
